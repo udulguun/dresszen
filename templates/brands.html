@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Brands | DressZeN Finder</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/brands.css') }}">
+</head>
+<body>
+
+<header class="header">
+    <div class="logo-container">
+        <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo" class="logo"></a>
+    </div>
+    <div class="website-name">
+        <img src="{{ url_for('static', filename='img/header.png') }}" alt="Website name" class="website-name-img">
+    </div>
+    <nav class="search-login-menu">
+        <input type="text" class="search-bar" placeholder="SEARCH" aria-label="SEARCH">
+        <button class="login-btn" aria-label="Login">LOGIN</button>
+        <div class="menu-icon" aria-label="Menu" onclick="toggleDropdown()">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </div>
+        <div id="dropdownMenu" class="dropdown-menu" style="display:none;">
+            <a href="#profile">YOUR PROFILE</a>
+            <a href="{{ url_for('saved') }}">SAVED ITEMS</a>
+            <a href="{{ url_for('brands') }}">BRANDS</a>
+        </div>
+    </nav>
+</header>
+
+<hr class="separator-line">
+
+<!-- Task Bar -->
+<nav class="task-bar">
+    <a href="{{ url_for('tops') }}"><button class="task-btn">TOPS</button></a>
+    <a href="{{ url_for('bottoms') }}"><button class="task-btn">BOTTOMS</button></a>
+    <a href="{{ url_for('shoes') }}"><button class="task-btn">SHOES</button></a>
+    <a href="{{ url_for('acc') }}"><button class="task-btn">ACCESSORIES</button></a>
+</nav>
+
+
+<main class="main-content">
+    <section>
+        <h2>Select Your Favorite Brands</h2>
+        <div class="brands-container"> <!-- Wrapper div for flexbox -->
+            <form id="brandsForm">
+                <div class="checkbox-group"> <!-- Container for checkboxes -->
+                    <label><input type="checkbox" name="brand" value="CHANEL"> CHANEL</label>
+                    <label><input type="checkbox" name="brand" value="DIOR"> DIOR</label>
+                    <label><input type="checkbox" name="brand" value="ADIDAS"> ADIDAS</label>
+                    <label><input type="checkbox" name="brand" value="NIKE"> NIKE</label>
+                    <label><input type="checkbox" name="brand" value="ZARA"> ZARA</label>
+                    <label><input type="checkbox" name="brand" value="H&M"> H&M</label>
+                    <label><input type="checkbox" name="brand" value="LOUIS VUITTON"> LOUIS VUITTON</label>
+                    <label><input type="checkbox" name="brand" value="GUCCI"> GUCCI</label>
+                    <label><input type="checkbox" name="brand" value="UNIQLO"> UNIQLO</label>
+                    <label><input type="checkbox" name="brand" value="PUMA"> PUMA</label>
+                    <label><input type="checkbox" name="brand" value="LULULEMON"> LULULEMON</label>
+                    <label><input type="checkbox" name="brand" value="BALENCIAGA"> BALENCIAGA</label>
+                    <label><input type="checkbox" name="brand" value="RALPH LAUREN"> RALPH LAUREN</label>
+                    <label><input type="checkbox" name="brand" value="MARC JACOBS"> MARC JACOBS</label>
+                    <label><input type="checkbox" name="brand" value="BERSHKA"> BERSHKA</label>
+                    <label><input type="checkbox" name="brand" value="PULL&BEAR"> PULL&BEAR</label>
+                    <label><input type="checkbox" name="brand" value="STRADIVARIUS"> STRADIVARIUS</label>
+                </div>
+                <button type="button" onclick="submitBrands()">SUBMIT</button>
+                <!-- Move the button here -->
+                <button type="button" onclick="window.location.href='index.html'">BACK TO HOME</button>
+            </form>
+        </div> <!-- End of brands-container -->
+    </section>
+</main>
+
+
+
+<footer>
+    <p>&copy; 2024 DressZeN Finder | <a href="{{ url_for('imprint') }}">Imprint</a></p>
+</footer>
+
+<script>
+    function submitBrands() {
+        const checkboxes = document.querySelectorAll('input[name="brand"]:checked');
+        if (checkboxes.length > 5) {
+            alert("You can only select a maximum of 5 brands.");
+            return;
+        }
+
+        const selectedBrands = Array.from(checkboxes).map(checkbox => checkbox.value);
+        alert("You selected: " + selectedBrands.join(", "));
+    }
+
+    function toggleDropdown() {
+        var dropdown = document.getElementById("dropdownMenu");
+        dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    }
+
+    window.onclick = function(event) {
+        if (!event.target.matches('.menu-icon')) {
+            var dropdown = document.getElementById("dropdownMenu");
+            if (dropdown.style.display === "block") {
+                dropdown.style.display = "none";
+            }
+        }
+    }
+</script>
+
+</body>
+</html>

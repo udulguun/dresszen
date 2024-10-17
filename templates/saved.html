@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saved Items</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/saved.css') }}"> <!-- Link your CSS file -->
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo" class="logo"></a>
+        </div>
+
+        <div class="website-name">
+            <img src="{{ url_for('static', filename='img/header.png') }}" alt="Website name" class="website-name-img">
+        </div>
+
+        <nav class="search-login-menu">
+            <!-- Search bar -->
+            <input type="text" class="search-bar" placeholder="SEARCH" aria-label="SEARCH">
+            
+            <!-- Login button -->
+            <button class="login-btn" aria-label="Login">LOGIN</button>
+
+            <!-- Three lines menu -->
+            <div class="menu-icon" aria-label="Menu" onclick="toggleDropdown()">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </div>
+
+            <!-- Dropdown Menu -->
+            <div id="dropdownMenu" class="dropdown-menu" style="display:none;"> <!-- Hide by default -->
+                <a href="#profile">YOUR PROFILE</a>
+                <a href="{{ url_for('saved') }}">SAVED ITEMS</a>
+                <a href="{{ url_for('brands') }}">BRANDS</a> <!-- Link to brands page -->
+            </div>
+        </nav>
+    </header>
+
+    <!-- Horizontal line separating header and task bar -->
+    <hr class="separator-line">
+
+    <!-- Task Bar -->
+    <nav class="task-bar">
+        <a href="{{ url_for('tops') }}"><button class="task-btn">TOPS</button></a>
+        <a href="{{ url_for('bottoms') }}"><button class="task-btn">BOTTOMS</button></a>
+        <a href="{{ url_for('shoes') }}"><button class="task-btn">SHOES</button></a>
+        <a href="{{ url_for('acc') }}"><button class="task-btn">ACCESSORIES</button></a>
+    </nav>
+
+
+    <!-- Content for Saved Items -->
+    <section class="saved-items-section">
+        <h2>YOUR SAVED ITEMS</h2>
+        <div class="saved-items-container">
+            <!-- Saved items -->
+            <div class="saved-item-box">
+                <img src="{{ url_for('static', filename='img/B2.jpeg') }}" alt="Saved Item 1" class="saved-item-image">
+                <div class="saved-item-info">
+                    <h3>Bag</h3>
+                    <p>White / Black</p>
+                    <button class="remove-btn">Remove</button>
+                </div>
+            </div>
+
+            <div class="saved-item-box">
+                <img src="{{ url_for('static', filename='img/b3.png') }}" alt="Saved Item 1" class="saved-item-image">
+                <div class="saved-item-info">
+                    <h3>Trousers</h3>
+                    <p>Velvet flared trousers with slits</p>
+                    <button class="remove-btn">Remove</button>
+                </div>
+            </div>
+
+            <div class="saved-item-box">
+                <img src="{{ url_for('static', filename='img/top7.jpg') }}" alt="Saved Item 1" class="saved-item-image">
+                <div class="saved-item-info">
+                    <h3>Shirt</h3>
+                    <p>Denim Shirt</p>
+                    <button class="remove-btn">Remove</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer (optional) -->
+    <footer class="">
+        <p>&copy; 2024 DressZeN Finder | <a href="{{ url_for('imprint') }}">Imprint</p>
+    </footer>
+
+    <script>
+        // Function to toggle dropdown menu visibility
+        function toggleDropdown() {
+            var dropdown = document.getElementById("dropdownMenu");
+            dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+        }
+
+        // Close dropdown if clicked outside
+        window.onclick = function(event) {
+            if (!event.target.matches('.menu-icon')) {
+                const dropdowns = document.getElementsByClassName("dropdown-menu");
+                for (let i = 0; i < dropdowns.length; i++) {
+                    const openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === 'block') {
+                        openDropdown.style.display = 'none';
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

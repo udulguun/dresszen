@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACCESSORIES | DressZeN Finder</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/acc.css') }}">
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo" class="logo"></a>
+        </div>
+
+        <div class="website-name">
+            <img src="{{ url_for('static', filename='img/header.png') }}" alt="Website name" class="website-name-img">
+        </div>
+
+        <nav class="search-login-menu">
+            <!-- Search bar -->
+            <input type="text" class="search-bar" placeholder="SEARCH" aria-label="SEARCH">
+            
+            <!-- Login button -->
+            <button class="login-btn" aria-label="Login">LOGIN</button>
+
+            <!-- Three lines menu -->
+            <div class="menu-icon" aria-label="Menu" onclick="toggleDropdown()">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </div>
+
+            <!-- Dropdown Menu -->
+            <div id="dropdownMenu" class="dropdown-menu" style="display:none;"> <!-- Hide by default -->
+                <a href="#profile">YOUR PROFILE</a>
+                <a href="{{ url_for('saved') }}">SAVED ITEMS</a>
+                <a href="{{ url_for('brands') }}">BRANDS</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Task Bar -->
+    <nav class="task-bar">
+        <a href="{{ url_for('tops') }}"><button class="task-btn">TOPS</a></button>
+        <a href="{{ url_for('bottoms') }}"><button class="task-btn">BOTTOMS</a></button>
+        <a href="{{ url_for('shoes') }}"><button class="task-btn">SHOES</a></button>
+        <a href="{{ url_for('acc') }}"><button class="task-btn">ACCESSORIES</a></button>
+    </nav>
+
+    
+    <div class="grid-container">
+        <div class="grid-item">
+            <img src="{{ url_for('static', filename='img/B1.jpeg') }}" alt="Assessor Image 1">
+            <h2>Bags</h2>
+            <p>Brands</p>
+            <button>SAVE ITEM</button>
+        </div>
+        <div class="grid-item">
+            <img src="{{ url_for('static', filename='img/H1.jpeg') }}" alt="Assessor Image 2">
+            <h2>Hats</h2>
+            <p>Brands</p>
+            <button>SAVE ITEM</button>
+        </div>
+        <div class="grid-item">
+            <img src="{{ url_for('static', filename='img/R1.jpeg') }}" alt="Assessor Image 3">
+            <h2>Rings</h2>
+            <p>Brand</p>
+            <button>SAVE ITEM</button>
+        </div>
+        <div class="grid-item">
+            <img src="{{ url_for('static', filename='img/E3.jpeg') }}" alt="Assessor Image 4">
+            <h2>Glasses</h2>
+            <p>Brand</p>
+            <button>SAVE ITEM</button>
+        </div>
+        <div class="grid-item">
+            <img src="{{ url_for('static', filename='img/ER1.jpeg') }}" alt="Assessor Image 5">
+            <h2>Earings</h2>
+            <p>Brands</p>
+            <button>SAVE ITEM</button>
+        </div>
+        <div class="grid-item">
+            <img src="{{ url_for('static', filename='img/N2.jpeg') }}" alt="Assessor Image 6">
+            <h2>Necklace</h2>
+            <p>Brands</p>
+            <button>SAVE ITEM</button>
+        </div>
+        <div class="grid-item">
+            <img src="{{ url_for('static', filename='img/R2.jpeg') }}" alt="Assessor Image 7">
+            <h2>Rings</h2>
+            <p>Brands</p>
+            <button>SAVE ITEM</button>
+        </div>
+        <div class="grid-item">
+            <img src="{{ url_for('static', filename='img/B2.jpeg') }}" alt="Assessor Image 8">
+            <h2>Bags</h2>
+            <p>Brands</p>
+            <button>SAVE ITEM</button>
+        </div>
+        <div class="grid-item">
+            <img src="{{ url_for('static', filename='img/H2.jpeg') }}" alt="Assessor Image 9">
+            <h2>Hats</h2>
+            <p>Brands</p>
+            <button>SAVE ITEM</button>
+        </div>
+    </div>
+
+    <!-- Horizontal line separating body and footer -->
+    <hr class="separator-line">
+
+    <footer class="">
+        <p>&copy; 2024 DressZeN Finder | <a href="{{ url_for('imprint') }}">Imprint</p>
+    </footer>
+
+    <script>
+        document.querySelector('.login-btn').addEventListener('click', function() {
+            window.location.href = '/register';
+        });
+
+        // Function to toggle dropdown menu visibility
+        function toggleDropdown() {
+            var dropdown = document.getElementById("dropdownMenu");
+            dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+        }
+
+        // Close dropdown if clicked outside
+        window.onclick = function(event) {
+            if (!event.target.matches('.menu-icon')) {
+                const dropdowns = document.getElementsByClassName("dropdown-menu");
+                for (let i = 0; i < dropdowns.length; i++) {
+                    const openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === 'block') {
+                        openDropdown.style.display = 'none';
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

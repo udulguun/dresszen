@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Maintenance Central</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <header>
+        <h1>Central Maintenance Page</h1>
+    </header>
+    <main>
+        <h2>Input Forms</h2>
+        <ul>
+            <li><a href="{{ url_for('register') }}">REGISTER</a></li> <!-- Link to the register page-->
+            <li><a href="{{ url_for('signin') }}">LOGIN</a></li> <!-- Link to the sign in page-->
+            <li><a href="{{ url_for('saved') }}">MANAGE SAVED ITEMS</a></li> <!-- Link to the saved times page-->
+            <li><a href="{{ url_for('brands') }}">ACCESS BRANDS</a></li> <!-- Link to accessing brands page-->
+            <li><a href="{{ url_for('bottoms') }}">BOTTOMS</a></li> <!-- Link to the bottom page-->
+            <li><a href="{{ url_for('tops') }}">TOPS</a></li> <!-- Link to the tops page-->
+            <li><a href="{{ url_for('shoes') }}">SHOES</a></li> <!-- Link to the shoes page-->
+            <li><a href="{{ url_for('acc') }}">ACCESSORIES</a></li> <!-- Link to accessories page-->
+            <li><a href="{{ url_for('imprint') }}">IMPRINT</a></li> <!-- Link to imprint page-->
+
+        </ul>
+    </main>
+    <footer>
+        <p>&copy; 2024 DressZen FiNder</p>
+    </footer>
+</body>
+</html>

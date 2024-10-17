@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imprint | DressZen FiNder</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <header class="imprint-header">
+        <div class="logo-container">
+            <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo" class="logo"></a>
+        </div>
+
+        <div class="website-name">
+            <img src="{{ url_for('static', filename='img/header.png') }}" alt="Website name" class="website-name-img">
+        </div>
+
+        <nav class="search-login-menu">
+            <!-- Search bar -->
+            <input type="text" class="search-bar" placeholder="SEARCH" aria-label="SEARCH">
+            
+            <!-- Login button -->
+            <button class="login-btn" aria-label="Login">LOGIN</button>
+
+            <!-- Three lines menu -->
+            <div class="menu-icon" aria-label="Menu" onclick="toggleDropdown()">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </div>
+
+            <!-- Dropdown Menu -->
+            <div id="dropdownMenu" class="dropdown-menu" style="display:none;"> <!-- Hide by default -->
+                <a href="#profile">YOUR PROFILE</a>
+                <a href="{{ url_for('saved') }}">SAVED ITEMS</a>
+                <a href="{{ url_for('brands') }}">BRANDS</a> <!-- Link to brands page -->
+            </div>
+        </nav>
+    </header>
+
+    <!-- Horizontal line separating header and task bar -->
+    <hr class="separator-line">
+    
+    <!-- Task Bar -->
+    <nav class="task-bar">
+        <a href="{{ url_for('tops') }}"><button class="task-btn">TOPS</a></button>
+        <a href="{{ url_for('bottoms') }}"><button class="task-btn">BOTTOMS</a></button>
+        <a href="{{ url_for('shoes') }}"><button class="task-btn">SHOES</a></button>
+        <a href="{{ url_for('acc') }}"><button class="task-btn">ACCESSORIES</a></button>
+    </nav>
+
+    <div class="imprint">
+        <h1>Imprint</h1>
+    </div>
+
+    <main class="imprint-main-content">
+        <section>
+            <h1>Contact Information</h1>
+            <p>Email: johndoe@company.com</p>
+            <p>Address: 123 Street, Bremen, Germany</p>
+        </section>
+
+        <section>
+            <h1>Disclaimer</h1>
+            <p>
+                This website is student lab work and does not necessarily reflect Constructor University opinions. Constructor University does not endorse this site, nor is it checked by Constructor University regularly, nor is it part of the official Constructor University web presence.
+            </p>
+            <p>
+                For each external link existing on this website, we initially have checked that the target page does not contain contents which is illegal with respect to German jurisdiction. However, as we have no influence on such contents, this may change without our notice. Therefore, we deny any responsibility for the websites referenced through our external links from here.
+            </p>
+            <p>
+                No information conflicting with GDPR is stored on the server.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 DressZen FiNder</p>
+    </footer>
+
+</body>
+</html>

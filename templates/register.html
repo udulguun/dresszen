@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- STYLE CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/register-style.css') }}">
+</head>
+
+<body>
+    
+	<div class="wrapper" style="background-image: url_for('static', filename='img/bg.jpg');">
+
+        <div class="inner">
+            <div class="image-holder">
+				<img src="{{ url_for('static', filename='img/download.jpeg') }}" alt="">
+            </div>
+            <form method="post" action="/">
+                <h3>Registration Form</h3>
+                
+                <div class="form-wrapper">
+                    <input type="text" name="username" placeholder="Username" class="form-control" required>
+                   
+                </div>
+                <div class="form-wrapper">
+                    <input type="email" name="email" placeholder="Email" class="form-control" required>
+                    
+                </div>
+                <div class="form-wrapper">
+					<input type="number" name="age" placeholder="Age" class="form-control" required min="0" max="120">
+                </div>
+                <div class="form-wrapper">
+                    <select name="gender" class="form-control" required>
+                        <option value="" disabled selected>Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>  <!-- Fixed the spelling -->
+                       
+                    </select>
+                   
+                </div>
+                <div class="form-wrapper">
+                    <select name="size" id="size" class="form-control" required>
+                        <option value="" disabled selected>Select Size</option>
+                        <option value="s">Small</option>
+                        <option value="m">Medium</option>
+                        <option value="l">Large</option>
+                        <option value="xl">Extra Large</option>
+                    </select>
+                    
+                </div>
+                <div class="form-wrapper">
+                    <input type="password" name="password" placeholder="Password" class="form-control" required>
+                   
+                </div>
+                
+                <button type="submit">Register
+                </button>
+
+                <!-- Display flashed messages -->
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                    <ul>
+                        {% for category, message in messages %}
+                        <li class="{{ category }}">{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                {% endwith %}
+
+                <p style="text-align: center; margin-top: 20px;">
+					Already have an account? <a href="{{ url_for('signin') }}">Sign in</a>
+                </p>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 DressZeN Finder | <a href="{{ url_for('imprint') }}">Imprint</a></p>
+        <p>&copy; 2024 DressZeN Finder | <a href="{{ url_for('maintenance') }}">Maintainance</a></p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | DressZeN Finder</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="logo-container">
+            <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo" class="logo"></a>
+        </div>
+
+        <div class="website-name">
+            <img src="{{ url_for('static', filename='img/header.png') }}" alt="Website name" class="website-name-img">
+        </div>
+
+        <nav class="search-login-menu">
+            <!-- Search bar -->
+            <input type="text" class="search-bar" placeholder="SEARCH" aria-label="SEARCH">
+            
+            <!-- Logout button -->
+            <a href="{{ url_for('signout') }} " class="login-btn">LOGOUT</a>
+
+            <!-- Three lines menu -->
+            <div class="menu-icon" aria-label="Menu" onclick="toggleDropdown()">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </div>
+
+            <!-- Dropdown Menu -->
+            <div id="dropdownMenu" class="dropdown-menu" style="display:none;"> <!-- Hide by default -->
+                <a href="#profile">YOUR PROFILE</a>
+                <a href="{{ url_for('saved') }}">SAVED ITEMS</a>
+                <a href="{{ url_for('brands') }}">BRANDS</a> <!-- Link to brands page -->
+            </div>
+        </nav>
+    </header>
+
+    <!-- Horizontal line separating header and task bar -->
+    <hr class="separator-line">
+
+    <!-- Task Bar -->
+    <nav class="task-bar">
+        <a href="{{ url_for('tops') }}"><button class="task-btn">TOPS</button></a>
+        <a href="{{ url_for('bottoms') }}"><button class="task-btn">BOTTOMS</button></a>
+        <a href="{{ url_for('shoes') }}"><button class="task-btn">SHOES</button></a>
+        <a href="{{ url_for('acc') }}"><button class="task-btn">ACCESSORIES</button></a>
+    </nav>
+
+
+    <main class="main-content">
+        <section>
+            <div>
+                <h2>Welcome to DressZeN Finder</h2>
+                <p>The purpose of our web application is to provide users with outfit inspiration and help them discover clothing items that match their personal style, wardrobe, occasion, and preferences.</p>
+            </div>
+            
+            <!-- Gallery Section -->
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="{{ url_for('static', filename='img/outfit1.jpg') }}" alt="Outfit 1" class="outfit-image">
+                    <div class="gallery-item-info">
+                        <div class="rating" data-outfit-id="1">
+                            <span class="star" data-value="1">&#9733;</span>
+                            <span class="star" data-value="2">&#9733;</span>
+                            <span class="star" data-value="3">&#9733;</span>
+                            <span class="star" data-value="4">&#9733;</span>
+                            <span class="star" data-value="5">&#9733;</span>
+                        </div>
+                        <button class="save-btn">SAVE ITEM</button>
+                        <div class="comment-section">
+                            <input type="text" class="comment-input" placeholder="Add a comment..." aria-label="Add a comment">
+                            <button class="submit-comment">Submit</button>
+                            <ul class="comments-list"></ul>
+                        </div>
+                    </div>
+                </div>
+                
+    
+                <div class="gallery-item">
+                    <img src="{{ url_for('static', filename='img/outfit2.jpg') }}" alt="Outfit 2" class="outfit-image">
+                    <div class="gallery-item-info">
+                        <div class="rating" data-outfit-id="2">
+                            <span class="star" data-value="1">&#9733;</span>
+                            <span class="star" data-value="2">&#9733;</span>
+                            <span class="star" data-value="3">&#9733;</span>
+                            <span class="star" data-value="4">&#9733;</span>
+                            <span class="star" data-value="5">&#9733;</span>
+                        </div>
+                        <button class="save-btn">SAVE ITEM</button>
+                        <div class="comment-section">
+                            <input type="text" class="comment-input" placeholder="Add a comment..." aria-label="Add a comment">
+                            <button class="submit-comment">Submit</button>
+                            <ul class="comments-list"></ul>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="gallery-item">
+                    <img src="{{ url_for('static', filename='img/outfit3.jpg') }}" alt="Outfit 3" class="outfit-image">
+                    <div class="gallery-item-info">
+                        <div class="rating" data-outfit-id="3">
+                            <span class="star" data-value="1">&#9733;</span>
+                            <span class="star" data-value="2">&#9733;</span>
+                            <span class="star" data-value="3">&#9733;</span>
+                            <span class="star" data-value="4">&#9733;</span>
+                            <span class="star" data-value="5">&#9733;</span>
+                        </div>
+                        <button class="save-btn">SAVE ITEM</button>
+                        <div class="comment-section">
+                            <input type="text" class="comment-input" placeholder="Add a comment..." aria-label="Add a comment">
+                            <button class="submit-comment">Submit</button>
+                            <ul class="comments-list"></ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="{{ url_for('static', filename='img/outfit4.jpg') }}" alt="Outfit 4" class="outfit-image">
+                    <div class="gallery-item-info">
+                        <div class="rating" data-outfit-id="4">
+                            <span class="star" data-value="1">&#9733;</span>
+                            <span class="star" data-value="2">&#9733;</span>
+                            <span class="star" data-value="3">&#9733;</span>
+                            <span class="star" data-value="4">&#9733;</span>
+                            <span class="star" data-value="5">&#9733;</span>
+                        </div>
+                        <button class="save-btn">SAVE ITEM</button>
+                        <div class="comment-section">
+                            <input type="text" class="comment-input" placeholder="Add a comment..." aria-label="Add a comment">
+                            <button class="submit-comment">Submit</button>
+                            <ul class="comments-list"></ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="{{ url_for('static', filename='img/outfit5.jpg') }}" alt="Outfit 5" class="outfit-image">
+                    <div class="gallery-item-info">
+                        <div class="rating" data-outfit-id="5">
+                            <span class="star" data-value="1">&#9733;</span>
+                            <span class="star" data-value="2">&#9733;</span>
+                            <span class="star" data-value="3">&#9733;</span>
+                            <span class="star" data-value="4">&#9733;</span>
+                            <span class="star" data-value="5">&#9733;</span>
+                        </div>
+                        <button class="save-btn">SAVE ITEM</button>
+                        <div class="comment-section">
+                            <input type="text" class="comment-input" placeholder="Add a comment..." aria-label="Add a comment">
+                            <button class="submit-comment">Submit</button>
+                            <ul class="comments-list"></ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="{{ url_for('static', filename='img/outfit6.jpg') }}" alt="Outfit 6" class="outfit-image">
+                    <div class="gallery-item-info">
+                        <div class="rating" data-outfit-id="6">
+                            <span class="star" data-value="1">&#9733;</span>
+                            <span class="star" data-value="2">&#9733;</span>
+                            <span class="star" data-value="3">&#9733;</span>
+                            <span class="star" data-value="4">&#9733;</span>
+                            <span class="star" data-value="5">&#9733;</span>
+                        </div>
+                        <button class="save-btn">SAVE ITEM</button>
+                        <div class="comment-section">
+                            <input type="text" class="comment-input" placeholder="Add a comment..." aria-label="Add a comment">
+                            <button class="submit-comment">Submit</button>
+                            <ul class="comments-list"></ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="{{ url_for('static', filename='img/outfit7.jpg') }}" alt="Outfit 7" class="outfit-image">
+                    <div class="gallery-item-info">
+                        <div class="rating" data-outfit-id="7">
+                            <span class="star" data-value="1">&#9733;</span>
+                            <span class="star" data-value="2">&#9733;</span>
+                            <span class="star" data-value="3">&#9733;</span>
+                            <span class="star" data-value="4">&#9733;</span>
+                            <span class="star" data-value="5">&#9733;</span>
+                        </div>
+                        <button class="save-btn">SAVE ITEM</button>
+                        <div class="comment-section">
+                            <input type="text" class="comment-input" placeholder="Add a comment..." aria-label="Add a comment">
+                            <button class="submit-comment">Submit</button>
+                            <ul class="comments-list"></ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="{{ url_for('static', filename='img/outfit8.jpg') }}" alt="Outfit 8" class="outfit-image">
+                    <div class="gallery-item-info">
+                        <div class="rating" data-outfit-id="8">
+                            <span class="star" data-value="1">&#9733;</span>
+                            <span class="star" data-value="2">&#9733;</span>
+                            <span class="star" data-value="3">&#9733;</span>
+                            <span class="star" data-value="4">&#9733;</span>
+                            <span class="star" data-value="5">&#9733;</span>
+                        </div>
+                        <button class="save-btn">SAVE ITEM</button>
+                        <div class="comment-section">
+                            <input type="text" class="comment-input" placeholder="Add a comment..." aria-label="Add a comment">
+                            <button class="submit-comment">Submit</button>
+                            <ul class="comments-list"></ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 DressZeN Finder | <a href="{{ url_for('imprint') }}">Imprint</a></p>
+        <p>&copy; 2024 DressZeN Finder | <a href="{{ url_for('maintenance') }}">Maintainance</a></p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.rating').forEach(rating => {
+            const stars = rating.querySelectorAll('.star');
+            stars.forEach(star => {
+                star.addEventListener('click', () => {
+                    const ratingValue = star.dataset.value;
+                    stars.forEach(s => {
+                        if (s.dataset.value <= ratingValue) {
+                            s.classList.add('filled'); // Fill the star
+                        } else {
+                            s.classList.remove('filled'); // Empty the star
+                        }
+                    });
+
+        // Save the rating (you can implement your own logic here)
+        const outfitId = rating.dataset.outfitId;
+        console.log(`Outfit ${outfitId} rated ${ratingValue} stars`);
+                });
+            });
+        });
+
+        // Handle comment submission
+        document.querySelectorAll('.submit-comment').forEach(button => {
+            button.addEventListener('click', () => {
+                const commentInput = button.previousElementSibling;
+                const commentText = commentInput.value.trim();
+                const commentsList = button.nextElementSibling;
+
+            if (commentText) {
+                const listItem = document.createElement('li');
+                listItem.textContent = commentText;
+                commentsList.appendChild(listItem);
+                commentInput.value = ''; // Clear the input field
+                alert('Comment added!'); // Provide feedback to the user
+            } else {
+                alert('Please enter a comment before submitting.'); // Notify user
+            }
+        }); 
+    });
+
+
+        // Function to toggle dropdown menu visibility
+        function toggleDropdown() {
+            var dropdown = document.getElementById("dropdownMenu");
+            dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+        }
+
+        // Close dropdown if clicked outside
+        window.onclick = function(event) {
+        if (!event.target.matches('.menu-icon')) {
+            const dropdowns = document.getElementsByClassName("dropdown-menu");
+        for (let i = 0; i < dropdowns.length; i++) {
+            dropdowns[i].style.display = "none";
+        }
+    }
+}
+
+    </script>
+</body>
+</html>

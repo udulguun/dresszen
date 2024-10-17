@@ -1,0 +1,249 @@
+/* General body style */
+body {
+    font-family: Palatino;
+    margin: 0;
+    padding: 0;
+    background-color: #F9E9EC;
+    color: #B98B82;
+}
+
+header {
+    background-color: #F9E9EC;
+    color: black;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.imprint-header {
+    background-color: #F9E9EC;
+    color: black;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    font-family: Palatino;
+    font-size: 20px;
+}
+
+/* Logo styling */
+.logo-container {
+    flex: 1; /* Takes up space in header */
+}
+
+.logo {
+    height: 70px; /* Adjusts logo size */
+    width: auto;
+}
+
+/* Website name styling */
+.website-name {
+    flex: 1; /* Takes up space in header */
+    display: flex; /* Align items */
+    justify-content: center; /* Center the website name */
+}
+
+.website-name-img {
+    height: 80px; /* Adjusts height for the website name */
+}
+
+/* Search bar and login button styling */
+.search-login-menu {
+    flex: 1; /* Takes up space in header */
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center items vertically */
+    justify-content: flex-end; /* Align items to the right */
+}
+
+.search-bar {
+    padding: 0.5rem; /* Padding for the search bar */
+    font-size: 1.1rem; /* Font size for the search bar */
+    font-family: Palatino;
+    margin-right: 1rem; /* Space between search bar and button */
+    border-radius: 5px; /* Rounded corners */
+    border: none; /* No border */
+}
+
+.login-btn {
+    padding: 0.5rem 1rem; /* Padding for the login button */
+    font-size: 1.1rem; /* Font size for the login button */
+    font-family: Palatino;
+    background-color: #F9E9EC; /* Background color for the button */
+    color: black; /* Text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    margin-right: 1rem; /* Space between button and menu icon */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.login-btn:hover {
+    background-color: white; /* Change background color on hover */
+}
+
+/* Menu icon styling */
+.menu-icon {
+    cursor: pointer; /* Change cursor to pointer */
+    display: flex; /* Use flexbox for vertical lines */
+    flex-direction: column; /* Align lines vertically */
+    justify-content: space-between; /* Space between lines */
+    width: 25px; /* Width of menu icon */
+    height: 20px; /* Height of menu icon */
+    transition: transform 0.3s; /* Smooth transition for hover effect */
+}
+
+.menu-icon:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+.menu-icon .line {
+    width: 100%; /* Full width for lines */
+    height: 3px; /* Height for each line */
+    background-color: black; /* Line color */
+}
+
+/* Main content styling */
+.main-content {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(css_img/background.jpg);
+    background-size: cover; /* Cover entire area */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    min-height: 900px; /* Minimum height for content */
+    padding: 2rem; /* Padding for content */
+    color: #B98B82; /* Text color */
+    font-family: Palatino;
+    display: flex; /* Enables flexbox */
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    min-height: 100vh; 
+}
+
+.main-content h2 {
+    font-size: 3rem; /* Font size for h2 */
+    margin-top: 0; /* Remove top margin */
+    text-align: center;
+}
+
+.main-content p {
+    font-size: 1.5rem; /* Font size for paragraphs */
+    text-align: center;
+}
+
+.imprint-main-content {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)); /* Background image with gradient */
+    background-size: cover; /* Cover entire area */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    min-height: 900px; /* Minimum height for content */
+    padding: 2rem; /* Padding for content */
+    color: white; /* Text color */
+    font-family: Palatino;
+    font-size: 20px;
+}
+
+/* Dropdown menu styles */
+.dropdown-menu {
+    display: none; /* Initially hidden */
+    position: absolute; /* Positioning */
+    top: 60px; /* Position below the header */
+    right: 10px; /* Position from the right */
+    background-color: #B98B82; /* Background color */
+    padding: 1rem; /* Padding */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.dropdown-menu a {
+    display: block; /* Block display for links */
+    color: white; /* Text color */
+    text-decoration: none; /* No underline */
+    margin-bottom: 0.5rem; /* Space between links */
+}
+
+.dropdown-menu a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+
+/* Horizontal line separating header and task bar */
+.separator-line {
+    border: none; /* Remove default border */
+    border-top: 1px solid #B98B82; /* Add custom border color */
+    margin: 0; /* Remove margin */
+}
+
+/* Centering the brands container */
+.brands-container {
+    display: flex;
+    flex-direction: column; /* Aligns children vertically */
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    margin: 30px; /* Adds some space around the container */
+    
+}
+
+/* Checkbox group styling */
+.checkbox-group {
+    display: flex;
+    flex-direction: column; /* Stack checkboxes vertically */
+    align-items: flex-start; /* Align items to the left */
+    margin: 10px 0; /* Space above and below the checkboxes */
+    font-size: 20px;
+}
+
+label {
+    margin: 5px 0; /* Space between checkboxes */
+}
+
+/* Task bar styling */
+.task-bar {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-around; /* Space items equally across the width */
+    align-items: center; /* Center items vertically */
+    padding: 1rem; /* Padding for the task bar */
+    background-color: #B98B82; /* Same background as header */
+}
+
+.task-btn {
+    background: none; /* No background color */
+    color: #FFFFFF; /* Set text color to white */
+    border: none; /* No border */
+    font-size: 1.1rem; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    padding: 0.5rem; /* Padding for buttons */
+    margin: 0; /* No margin */
+    flex: 1; /* Allow buttons to grow equally */
+    font-family: Palatino; /* Font family */
+    text-align: center; /* Center the text within the button */
+    text-decoration: none; /* No underline */
+}
+
+/* Remove link styles for task buttons */
+.task-btn a {
+    color: #FFFFFF; /* White text */
+    text-decoration: none; /* No underline */
+}
+
+/* Remove blue color on hover and active state */
+.task-btn:hover,
+.task-btn:active,
+.task-btn:focus {
+    color: #FFFFFF; /* Keep the text color white */
+    text-decoration: none; /* No underline on hover */
+}
+
+
+/* Main content styling */
+.main-content {
+    text-align: center;
+    padding: 20px;
+}
+
+
+ 
+footer {
+    background-color: #B98B82;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    position: relative;
+    bottom: 0;
+}
