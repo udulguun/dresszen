@@ -98,7 +98,7 @@ def signin():
         password = request.form['password']
 
         cur = mysql_client.cursor()
-        cur.execute('SELECT * FROM Users WHERE username=%s AND password=%s', (username, password))
+        cur.execute('SELECT * FROM users WHERE username=%s AND password=%s', (username, password))
         record = cur.fetchone()
 
         if record:
