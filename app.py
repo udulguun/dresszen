@@ -1,6 +1,6 @@
-import os
-import sys
-sys.path.insert(0, '/home/udulguun/public_html/dresszen/env/lib/python3.12/site-packages')
+# import os
+# import sys
+# sys.path.insert(0, '/home/udulguun/public_html/dresszen/env/lib/python3.12/site-packages')
 
 from flask import Flask, render_template, request, redirect, url_for, flash, session
 from flask_bcrypt import Bcrypt
@@ -16,12 +16,12 @@ app.config['MYSQL_DB'] = "udulguun_db"
 
 import mysql.connector
 
-# mysql_client = mysql.connector.connect(
-#     host="localhost",
-#     user="udulguun",
-#     password="rHmQxy",
-#     database="dresszenfinder5"
-# )
+mysql_client = mysql.connector.connect(
+    host="localhost",
+    user="udulguun",
+    password="rHmQxy",
+    database="dresszenfinder5"
+)
 
 @app.route('/', methods=['GET', 'POST'])
 def register():  # Changed function name from `index` to `register`
