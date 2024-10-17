@@ -34,7 +34,7 @@ def register():  # Changed function name from `index` to `register`
         password = request.form['password']
 
         cur = mysql_client.cursor()
-        cur.execute("INSERT INTO Users(username, size, age, email, gender, password) VALUES(%s, %s, %s, %s, %s, %s)", 
+        cur.execute("INSERT INTO users(username, size, age, email, gender, password) VALUES(%s, %s, %s, %s, %s, %s)", 
                     (username, size, age, email, gender, password))
         mysql_client.commit()
         cur.close()
