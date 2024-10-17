@@ -1,6 +1,6 @@
 import os
 import sys
-sys.path.insert(0, '/home/<username>/public_html/cgi-bin/myenv/lib/python2.7/site-packages')
+sys.path.insert(0, '/home/udulgunn/public_html/dresszen/env/lib/python3.12/site-packages')
 
 from flask import Flask, render_template, request, redirect, url_for, flash, session
 from flask_bcrypt import Bcrypt
