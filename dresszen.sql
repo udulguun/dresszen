@@ -43,6 +43,7 @@ CREATE TABLE clothing_item (
     color VARCHAR(255),
     cloth_description TEXT,
     brand_id INT,
+    image_url TEXT,
     season ENUM('Wnter', 'Fall', 'Spring', 'Summer'),
     type ENUM('Top', 'Bottom', 'Accessory', 'Shoe')
 );
@@ -62,6 +63,60 @@ CREATE TABLE brands (
     type ENUM('Luxury', 'Sportswear', 'Fast Fashion') NOT NULL,
     PRIMARY KEY (brand_id)
 );
+INSERT INTO brands (brand_name, brand_website, type)
+VALUES ('CHANEL', 'https://www.chanel.com', 'Luxury'),
+    ('DIOR', 'https://www.dior.com', 'Luxury'),
+    ('ADIDAS', 'https://www.adidas.com', 'Sportswear'),
+    ('NIKE', 'https://www.nike.com', 'Sportswear'),
+    ('ZARA', 'https://www.zara.com', 'Fast Fashion'),
+    ('H&M', 'https://www.hm.com', 'Fast Fashion'),
+    (
+        'LOUIS VUITTON',
+        'https://www.louisvuitton.com',
+        'Luxury'
+    ),
+    ('GUCCI', 'https://www.gucci.com', 'Luxury'),
+    (
+        'UNIQLO',
+        'https://www.uniqlo.com',
+        'Fast Fashion'
+    ),
+    ('PUMA', 'https://www.puma.com', 'Sportswear'),
+    (
+        'LULULEMON',
+        'https://www.lululemon.com',
+        'Sportswear'
+    ),
+    (
+        'BALENCIAGA',
+        'https://www.balenciaga.com',
+        'Luxury'
+    ),
+    (
+        'RALPH LAUREN',
+        'https://www.ralphlauren.com',
+        'Luxury'
+    ),
+    (
+        'MARC JACOBS',
+        'https://www.marcjacobs.com',
+        'Luxury'
+    ),
+    (
+        'BERSHKA',
+        'https://www.bershka.com',
+        'Fast Fashion'
+    ),
+    (
+        'PULL&BEAR',
+        'https://www.pullandbear.com',
+        'Fast Fashion'
+    ),
+    (
+        'STRADIVARIUS',
+        'https://www.stradivarius.com',
+        'Fast Fashion'
+    );
 -- Create User_Rating table
 CREATE TABLE user_Rating (
     user_id INT,
