@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TOPS | DressZeN Finder</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/tops.css') }}">
+    <title>BOTTOMS | DressZeN Finder</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bottoms.css') }}">
 </head>
 <body>
-
     <header class="header">
         <div class="logo-container">
             <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo" class="logo"></a>
@@ -35,7 +34,7 @@
             <div id="dropdownMenu" class="dropdown-menu" style="display:none;"> <!-- Hide by default -->
                 <a href="#profile">YOUR PROFILE</a>
                 <a href="{{ url_for('saved') }}">SAVED ITEMS</a>
-                <a href="{{ url_for('brands') }}">BRANDS</a>
+                <a href="{{ url_for('brands') }}">BRANDS</a> <!-- Link to brands page -->
             </div>
         </nav>
     </header>
@@ -51,39 +50,57 @@
     
     <div class="grid-container">
         <div class="grid-item">
-            <img src="{{ url_for('static', filename='img/top1.jpg') }}" alt="Top 1">
-            <h2>Burgundy Long sleeve top- Female</h2>
+            <img src="{{ url_for('static', filename='img/b1.png') }}" alt="Assessor Image 1">
+            <h2>Wide Leg Tailored Pants</h2>
             <p>Bershka</p>
             <button>SAVE ITEM</button>
         </div>
         <div class="grid-item">
-            <img src="{{ url_for('static', filename='img/top2.jpg') }}" alt="Top 2">
-            <h2>Black long dress- Female</h2>
-            <p>Zaara</p>
+            <img src="{{ url_for('static', filename='img/b2.png') }}" alt="Assessor Image 2">
+            <h2>Navy Blue Wide Leg Tailored Pants</h2>
+            <p>Bershka</p>
             <button>SAVE ITEM</button>
         </div>
         <div class="grid-item">
-            <img src="{{ url_for('static', filename='img/top3.jpg') }}" alt="Top 3">
-            <h2>Cream Puffer Jacket- Male</h2>
-            <p>H&M</p>
+            <img src="{{ url_for('static', filename='img/b3.png') }}" alt="Assessor Image 3">
+            <h2>Velvet flared trousers with slits</h2>
+            <p>Bershka</p>
             <button>SAVE ITEM</button>
         </div>
         <div class="grid-item">
-            <img src="{{ url_for('static', filename='img/top4.jpg') }}" alt="Top 4">
-            <h2>Blue Long Sleeve Shirt- Male</h2>
-            <p>Zaara</p>
+            <img src="{{ url_for('static', filename='img/b4.png') }}" alt="Assessor Image 4">
+            <h2>Baggy Leggings</h2>
+            <p>Bershka</p>
             <button>SAVE ITEM</button>
         </div>
         <div class="grid-item">
-            <img src="{{ url_for('static', filename='img/top5.jpg') }}" alt="Top 5">
-            <h2>Gray Tailored and Elegant Blouse- Female</h2>
-            <p>Channel</p>
+            <img src="{{ url_for('static', filename='img/b5.png') }}" alt="Assessor Image 5">
+            <h2>Black Leather Trousers</h2>
+            <p>Bershka</p>
             <button>SAVE ITEM</button>
         </div>
         <div class="grid-item">
-            <img src="{{ url_for('static', filename='img/top6.jpg') }}" alt="Top 6">
-            <h2>White Striped Stretch AIRism Shirt- Male</h2>
-            <p>Ralph Lauren</p>
+            <img src="{{ url_for('static', filename='img/b6.png') }}" alt="Assessor Image 6">
+            <h2>Flared Pants with Cable Pattern</h2>
+            <p>Bershka</p>
+            <button>SAVE ITEM</button>
+        </div>
+        <div class="grid-item">
+            <img src="{{ url_for('static', filename='img/b7.png') }}" alt="Assessor Image 7">
+            <h2>Maroon Ribbed Knit Flared Trousers</h2>
+            <p>Bershka</p>
+            <button>SAVE ITEM</button>
+        </div>
+        <div class="grid-item">
+            <img src="{{ url_for('static', filename='img/b8.png') }}" alt="Assessor Image 8">
+            <h2>Grey Ribbed Knit Flared Trousers</h2>
+            <p>Bershka</p>
+            <button>SAVE ITEM</button>
+        </div>
+        <div class="grid-item">
+            <img src="{{ url_for('static', filename='img/b9.png') }}" alt="Assessor Image 9">
+            <h2>Black Ribbed Knit Flared Trousers</h2>
+            <p>Bershka</p>
             <button>SAVE ITEM</button>
         </div>
     </div>
@@ -95,11 +112,10 @@
         <p>&copy; 2024 DressZeN Finder | <a href="{{ url_for('imprint') }}">Imprint</p>
     </footer>
 
-    <Script>
+    <script>
         document.querySelector('.login-btn').addEventListener('click', function() {
             window.location.href = '/register';
         });
-
         // Function to toggle dropdown menu visibility
         function toggleDropdown() {
             var dropdown = document.getElementById("dropdownMenu");
@@ -118,6 +134,6 @@
                 }
             }
         }
-    </Script>
+    </script>
 </body>
 </html>

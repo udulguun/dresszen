@@ -18,8 +18,8 @@ import mysql.connector
 
 mysql_client = mysql.connector.connect(
     host="localhost",
-    user="udulguun",
-    password="rHmQxy",
+    user="root",
+    password="new_password",
     database="dresszenfinder5"
 )
 
@@ -64,6 +64,20 @@ def acc():
 @app.route('/brands')
 def brands():
     return render_template('brands.html')
+
+@app.route('/submit_brands', methods=['POST'])
+def submit_brands():
+    selected_brands = request.form.getlist('selectedBrands[]')
+    if not selected_brands:
+        flash('No brands were selected.')
+        return redirect(url_for('brands'))
+
+    # You can process the selected brands here (e.g., save to a database)
+    print(selected_brands)  # Debugging output to ensure it works
+
+    flash('Brands submitted successfully!')
+    return redirect(url_for('index'))
+
 
 @app.route('/saved')
 def saved():
@@ -111,4 +125,4 @@ def signin():
     return render_template('signin.html', msg=msg)
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=8006)
+    app.run(debug=True)
