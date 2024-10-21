@@ -45,7 +45,8 @@ CREATE TABLE clothing_item (
     brand_id INT,
     image_url TEXT,
     season ENUM('winter', 'autumn', 'spring', 'summer'),
-    type ENUM('top', 'bottom', 'accessory', 'shoes')
+    type ENUM('top', 'bottom', 'accessory', 'shoes'),
+    page_html VARCHAR(255)
 );
 INSERT INTO clothing_item(
         color,
@@ -54,7 +55,8 @@ INSERT INTO clothing_item(
         brand_id,
         image_url,
         season,
-        type
+        type,
+        page_html
     )
 VALUES (
         'burgundy',
@@ -63,7 +65,8 @@ VALUES (
         15,
         'static/img/top1.jpg',
         'spring',
-        'top'
+        'top',
+        'top1.html'
     ),
     (
         'black',
@@ -72,7 +75,8 @@ VALUES (
         5,
         'static/img/top2.jpg',
         'summer',
-        'top'
+        'top',
+        'top2.html'
     ),
     (
         'cream',
@@ -81,7 +85,8 @@ VALUES (
         6,
         'static/img/top3.jpg',
         'winter',
-        'top'
+        'top',
+        'top3.html'
     ),
     (
         'blue',
@@ -90,7 +95,8 @@ VALUES (
         5,
         'static/img/top4.jpg',
         'autumn',
-        'top'
+        'top',
+        'top4.html'
     ),
     (
         'gray',
@@ -99,7 +105,8 @@ VALUES (
         1,
         'static/img/top5.jpg',
         'autumn',
-        'top'
+        'top',
+        'top5.html'
     ),
     (
         'white',
@@ -108,7 +115,8 @@ VALUES (
         13,
         'static/img/top6.jpg',
         'summer',
-        'top'
+        'top',
+        'top6.html'
     );
 INSERT INTO clothing_item(
         color,
@@ -117,7 +125,8 @@ INSERT INTO clothing_item(
         brand_id,
         image_url,
         season,
-        type
+        type,
+        page_html
     )
 VALUES (
         'burgundy',
@@ -126,7 +135,8 @@ VALUES (
         15,
         'static/img/b1.png',
         'autumn',
-        'bottom'
+        'bottom',
+        'bottom1.html'
     ),
     (
         'black',
@@ -135,7 +145,8 @@ VALUES (
         17,
         'static/img/b2.png',
         'spring',
-        'bottom'
+        'bottom',
+        'bottom2.html'
     ),
     (
         'blue',
@@ -144,7 +155,8 @@ VALUES (
         12,
         'static/img/b3.jpg',
         'summer',
-        'bottom'
+        'bottom',
+        'bottom3.html'
     ),
     (
         'cream',
@@ -153,7 +165,8 @@ VALUES (
         2,
         'static/img/b4.jpg',
         'spring',
-        'bottom'
+        'bottom',
+        'bottom4.html'
     ),
     (
         'white',
@@ -162,7 +175,8 @@ VALUES (
         13,
         'static/img/b5.jpg',
         'summer',
-        'bottom'
+        'bottom',
+        'bottom5.html'
     ),
     (
         'white',
@@ -171,7 +185,8 @@ VALUES (
         11,
         'static/img/b6.png',
         'autumn',
-        'bottom'
+        'bottom',
+        'bottom6.html'
     );
 -- Create Wardrobe table
 CREATE TABLE wardrobe (

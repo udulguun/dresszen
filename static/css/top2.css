@@ -1,11 +1,15 @@
-/* General body style */
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: Palatino;
+    font-family: Palatino; /* Simple and clean font */
     margin: 0;
     padding: 0;
     background-color: #F9E9EC;
-    color: black;
+    color: #333;
 }
+
 
 header {
     background-color: #F9E9EC;
@@ -15,65 +19,6 @@ header {
     justify-content: space-between;
     align-items: center;
 }
-
-h1 {
-    margin: 20px 0;
-    text-align: center;
-}
-
-.search_results {
-    text-align: center;
-}
-
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 items per row */
-    gap: 20px;
-    padding: 20px;
-    max-width: 1200px;
-    margin: auto;
-}
-
-
-.grid-item {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    text-align: center;
-    transition: transform 0.3s;
-}
-
-.grid-item img {
-    width: 100%;
-    height: auto;
-}
-
-.grid-item h2 {
-    margin: 15px 0 10px;
-    font-size: 20px;
-}
-
-.grid-item p {
-    margin: 0 0 15px;
-    font-size: 20px;
-}
-
-.grid-item button {
-    background-color:#B98B82;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 10px 15px;
-    cursor: pointer;
-    margin-bottom: 8px;
-    transition: background-color 0.3s;
-}
-
-.grid-item button:hover {
-    background-color: #555;
-}
-
 
 /* Logo styling */
 .logo-container {
@@ -166,30 +111,6 @@ button[type="submit"]:hover {
     background-color: black; /* Line color */
 }
 
-/* Dropdown menu styles */
-.dropdown-menu {
-    display: none; /* Initially hidden */
-    position: absolute; /* Positioning */
-    top: 60px; /* Position below the header */
-    right: 10px; /* Position from the right */
-    background-color: #B98B82; /* Background color */
-    padding: 1rem; /* Padding */
-    border-radius: 5px; /* Rounded corners */
-}
-
-.dropdown-menu a {
-    display: block; /* Block display for links */
-    color: white; /* Text color */
-    text-decoration: none; /* No underline */
-    margin-bottom: 0.5rem; /* Space between links */
-}
-
-.dropdown-menu a:hover {
-    text-decoration: underline; /* Underline on hover */
-}
-
-
-/* Horizontal line separating header and task bar */
 .separator-line {
     border: none; /* Remove default border */
     border-top: 1px solid #B98B82; /* Add custom border color */
@@ -233,8 +154,102 @@ button[type="submit"]:hover {
     text-decoration: none; /* No underline on hover */
 }
 
-.search_results {
+
+h1 {
+    margin: 0;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.grid-item {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
     text-align: center;
+    transition: transform 0.3s;
+}
+
+.grid-item img {
+    width: 100%;
+    height: auto;
+}
+
+.grid-item h2 {
+    margin: 15px 0 10px;
+    font-size: 20px;
+}
+
+.grid-item p {
+    margin: 0 0 15px;
+    font-size: 14px;
+}
+
+.grid-item button {
+    background-color:#B98B82;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin-bottom: 8px;
+    transition: background-color 0.3s;
+}
+
+.grid-item button:hover {
+    background-color: #555;
+}
+
+/* Dropdown menu styles */
+.dropdown-menu {
+    display: none; /* Initially hidden */
+    position: absolute; /* Positioning */
+    top: 60px; /* Position below the header */
+    right: 10px; /* Position from the right */
+    background-color: #B98B82; /* Background color */
+    padding: 1rem; /* Padding */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.dropdown-menu a {
+    display: block; /* Block display for links */
+    color: white; /* Text color */
+    text-decoration: none; /* No underline */
+    margin-bottom: 0.5rem; /* Space between links */
+}
+
+.dropdown-menu a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Centering the brands container */
+.brands-container {
+    display: flex;
+    flex-direction: column; /* Aligns children vertically */
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    margin: 30px; /* Adds some space around the container */
+    
+}
+
+/* Checkbox group styling */
+.checkbox-group {
+    display: flex;
+    flex-direction: column; /* Stack checkboxes vertically */
+    align-items: flex-start; /* Align items to the left */
+    margin: 10px 0; /* Space above and below the checkboxes */
+    font-size: 20px;
+}
+
+label {
+    margin: 5px 0; /* Space between checkboxes */
 }
 
 footer {
@@ -244,17 +259,5 @@ footer {
     padding: 5px;
     position: relative;
     bottom: 0;
-}
-
-/* Responsive design for smaller screens */
-@media (max-width: 768px) {
-    .grid-container {
-        grid-template-columns: repeat(2, 1fr); /* 2 items per row on tablets */
-    }
-}
-
-@media (max-width: 480px) {
-    .grid-container {
-        grid-template-columns: 1fr; /* 1 item per row on mobile */
-    }
+    width: 100%;
 }

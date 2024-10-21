@@ -2,7 +2,7 @@
 # import sys
 # sys.path.insert(0, '/home/udulguun/public_html/dresszen/env/lib/python3.12/site-packages')
 
-from flask import Flask, render_template, request, redirect, url_for, flash, session
+from flask import Flask, render_template, request, redirect, url_for, flash, session, send_from_directory
 from flask_bcrypt import Bcrypt
 
 import re
@@ -64,6 +64,13 @@ def search():
         return render_template('search_results.html', results=results)
     
     return redirect(url_for('index'))
+
+
+# Route to serve individual item HTML pages
+@app.route('/item/<item_name>')
+def item(item_name):
+    # Render the specific item HTML page
+    return render_template(f'{item_name}.html')
 
 
 @app.route('/tops')

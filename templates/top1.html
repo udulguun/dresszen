@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Home | DressZeN Finder</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/search.css') }}">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | DressZeN Finder</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/top1.css') }}">
+</head>
+
 <body>
     <header class="header">
         <div class="logo-container">
@@ -40,7 +41,7 @@
                 <a href="{{ url_for('brands') }}">BRANDS</a> <!-- Link to brands page -->
             </div>
         </nav>
-    </header>   
+    </header>
 
     <!-- Horizontal line separating header and task bar -->
     <hr class="separator-line">
@@ -53,74 +54,27 @@
         <a href="{{ url_for('acc') }}"><button class="task-btn">ACCESSORIES</button></a>
     </nav>
 
-    <div class="search_results">
-        <h1>Search Results</h1>
-    </div>
-
     <div class="grid-container">
-        {% if results %}
-            {% for item in results %}
-                <div class="grid-item">
-                    <a href="{{ url_for('item', item_name=item[8].replace('.html', '')) }}"> <!-- Link to the individual item page -->
-                        <img src="{{ item[5] }}" alt="{{ item[3] }}" width="100">
-                        <p>{{ item[3] }}</p>
-                    </a>
-                </div>
-            {% endfor %}
-        {% else %}
-            <p>No results found.</p>
-        {% endif %}
+        <div class="grid-item">
+            <img src="{{ url_for('static', filename='img/top1.jpg') }}" alt="Top 1">
+            <h2>Burgundy Long sleeve top- Female</h2>
+            <p>Bershka</p>
+            <button>SAVE ITEM</button>
+        </div>
     </div>
-    
-    
-    
 
+    <!-- Horizontal line separating body and footer -->
+    <hr class="separator-line">
 
-    <footer>
+    <footer class="">
         <p>&copy; 2024 DressZeN Finder | <a href="{{ url_for('imprint') }}">Imprint</a></p>
         <p>&copy; 2024 DressZeN Finder | <a href="{{ url_for('maintenance') }}">Maintenance</a></p>
     </footer>
 
-    <script>
-        document.querySelectorAll('.rating').forEach(rating => {
-            const stars = rating.querySelectorAll('.star');
-            stars.forEach(star => {
-                star.addEventListener('click', () => {
-                    const ratingValue = star.dataset.value;
-                    stars.forEach(s => {
-                        if (s.dataset.value <= ratingValue) {
-                            s.classList.add('filled'); // Fill the star
-                        } else {
-                            s.classList.remove('filled'); // Empty the star
-                        }
-                    });
-
-        // Save the rating (you can implement your own logic here)
-        const outfitId = rating.dataset.outfitId;
-        console.log(`Outfit ${outfitId} rated ${ratingValue} stars`);
-                });
-            });
+    <Script>
+        document.querySelector('.login-btn').addEventListener('click', function() {
+            window.location.href = '/register';
         });
-
-        // Handle comment submission
-        document.querySelectorAll('.submit-comment').forEach(button => {
-            button.addEventListener('click', () => {
-                const commentInput = button.previousElementSibling;
-                const commentText = commentInput.value.trim();
-                const commentsList = button.nextElementSibling;
-
-                if (commentText) {
-                    const listItem = document.createElement('li');
-                    listItem.textContent = commentText;
-                    commentsList.appendChild(listItem);
-                    commentInput.value = ''; // Clear the input field
-                    alert('Comment added!'); // Provide feedback to the user
-                } else {
-                    alert('Please enter a comment before submitting.'); // Notify user
-                }
-            }); 
-        });
-
 
         // Function to toggle dropdown menu visibility
         function toggleDropdown() {
@@ -133,11 +87,13 @@
             if (!event.target.matches('.menu-icon')) {
                 const dropdowns = document.getElementsByClassName("dropdown-menu");
                 for (let i = 0; i < dropdowns.length; i++) {
-                    dropdowns[i].style.display = "none";
+                    const openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === 'block') {
+                        openDropdown.style.display = 'none';
+                    }
                 }
             }
         }
-
-    </script>
+    </Script>
 </body>
 </html>
