@@ -60,7 +60,7 @@ VALUES (
         'burgundy',
         'female',
         'Burgundy Long sleeve top- Female',
-        '15',
+        15,
         "{{ url_for(' static ', filename=' img / top1.jpg ') }}",
         'spring',
         'top'
@@ -69,7 +69,7 @@ VALUES (
         'black',
         'female',
         'Black long dress- Female',
-        '5',
+        5,
         "{{ url_for('static', filename='img/top2.jpg') }}",
         'summer',
         'top'
@@ -78,7 +78,7 @@ VALUES (
         'cream',
         'male',
         'Cream Puffer Jacket- Male',
-        '6',
+        6,
         "{{ url_for('static', filename='img/top3.jpg') }}",
         'winter',
         'top'
@@ -87,7 +87,7 @@ VALUES (
         'blue',
         'male',
         'Blue Long Sleeve Shirt- Male',
-        '5',
+        5,
         "{{ url_for('static', filename='img/top4.jpg') }}",
         'autumn',
         'top'
@@ -96,7 +96,7 @@ VALUES (
         'gray',
         'female',
         'Gray Tailored and Elegant Blouse- Female',
-        '1',
+        1,
         "{{ url_for('static', filename='img/top5.jpg') }}",
         'autumn',
         'top'
@@ -105,10 +105,73 @@ VALUES (
         'white',
         'male',
         'White Striped Stretch AIRism Shirt- Male',
-        '13',
+        13,
         "{{ url_for('static', filename='img/top6.jpg') }}",
         'summer',
         'top'
+    );
+INSERT INTO clothing_item(
+        color,
+        gender,
+        cloth_description,
+        brand_id,
+        image_url,
+        season,
+        type
+    )
+VALUES (
+        'burgundy',
+        'female',
+        'Burgundy Tailored Pants- Female',
+        15,
+        "{{ url_for('static', filename='img/b1.png') }}",
+        'autumn',
+        'bottom'
+    ),
+    (
+        'black',
+        'female',
+        'Black Leather Trousers- Female',
+        17,
+        "{{ url_for('static', filename='img/b2.png') }}",
+        'spring',
+        'bottom'
+    ),
+    (
+        'blue',
+        'male',
+        'Blue Linen Pants- Male',
+        12,
+        "{{ url_for('static', filename='img/b3.jpg') }}",
+        'summer',
+        'bottom'
+    ),
+    (
+        'cream',
+        'male',
+        'Cream Trousers- Male',
+        2,
+        "{{ url_for('static', filename='img/b4.jpg') }}",
+        'spring',
+        'bottom'
+    ),
+    (
+        'white',
+        'male',
+        'White Linen Trousers- Male',
+        13,
+        "{{ url_for('static', filename='img/b5.jpg') }}",
+        'summer',
+        'bottom'
+    ),
+    (
+        'white',
+        'female',
+        'White Flared Pants with Cable Pattern- Female',
+        11,
+        "{{ url_for('static', filename='img/b6.png') }}",
+        'autumn',
+        'bottom'
     );
 -- Create Wardrobe table
 CREATE TABLE wardrobe (
