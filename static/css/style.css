@@ -86,6 +86,21 @@ header {
     background-color: white; /* Change background color on hover */
 }
 
+button[type="submit"] {
+    background-color: #B98B82; /* Set background color to pink */
+    color: #F9E9EC; /* Set text color to black */
+    border: none; /* Remove border */
+    padding: 10px 20px; /* Add padding */
+    border-radius: 5px; /* Optional: Add rounded corners */
+    cursor: pointer; /* Change cursor to pointer */
+    font-family: Palatino;
+    font-size: 15px;
+}
+
+button[type="submit"]:hover {
+    background-color: #B98B82; /* Lighter shade on hover (optional) */
+}
+
 /* Menu icon styling */
 .menu-icon {
     cursor: pointer; /* Change cursor to pointer */

@@ -16,6 +16,64 @@ header {
     align-items: center;
 }
 
+h1 {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.search_results {
+    text-align: center;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* This will create 3 equal-width columns */
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.grid-item {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.grid-item img {
+    width: 100%;
+    height: auto;
+}
+
+.grid-item h2 {
+    margin: 15px 0 10px;
+    font-size: 20px;
+}
+
+.grid-item p {
+    margin: 0 0 15px;
+    font-size: 14px;
+}
+
+.grid-item button {
+    background-color:#B98B82;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin-bottom: 8px;
+    transition: background-color 0.3s;
+}
+
+.grid-item button:hover {
+    background-color: #555;
+}
+
+
 /* Logo styling */
 .logo-container {
     flex: 1; /* Takes up space in header */
@@ -69,6 +127,21 @@ header {
 
 .login-btn:hover {
     background-color: white; /* Change background color on hover */
+}
+
+button[type="submit"] {
+    background-color: #B98B82; /* Set background color to pink */
+    color: #F9E9EC; /* Set text color to black */
+    border: none; /* Remove border */
+    padding: 10px 20px; /* Add padding */
+    border-radius: 5px; /* Optional: Add rounded corners */
+    cursor: pointer; /* Change cursor to pointer */
+    font-family: Palatino;
+    font-size: 15px;
+}
+
+button[type="submit"]:hover {
+    background-color: #B98B82; /* Lighter shade on hover (optional) */
 }
 
 /* Menu icon styling */
@@ -159,6 +232,9 @@ header {
     text-decoration: none; /* No underline on hover */
 }
 
+.search_results {
+    text-align: center;
+}
 
 footer {
     background-color: #B98B82;

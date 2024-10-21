@@ -19,7 +19,7 @@
         <nav class="search-login-menu">
             <!-- Search bar -->
             <form action="{{ url_for('search') }}" method="GET" class="search-form">
-                <input type="text" name="query" placeholder="Search clothing..." required class="search-bar">
+                <input type="text" name="query" placeholder="Search..." required class="search-bar">
                 <button type="submit">Search</button>
             </form>
             
@@ -53,19 +53,24 @@
         <a href="{{ url_for('acc') }}"><button class="task-btn">ACCESSORIES</button></a>
     </nav>
 
-    <h1>Search Results</h1>
-    {% if results %}
+    <div class="search_results">
+        <h1>Search Results</h1>
+    </div>
+
+    <div class="grid-container">
+        {% if results %}
         <ul>
             {% for item in results %}
-                <li>
+                <li class="grid-item">
                     <img src="{{ item[5] }}" alt="{{ item[3] }}" width="100">
-                    <p>{{ item[3] }} - {{ item[0] }} ({{ item[1] }})</p>
+                    <p>{{ item[3] }} - {{ item[0] }}</p>
                 </li>
             {% endfor %}
         </ul>
-    {% else %}
-        <p>No results found.</p>
-    {% endif %}
+        {% else %}
+            <p>No results found.</p>
+        {% endif %}
+    </div>
 
 
     <footer>

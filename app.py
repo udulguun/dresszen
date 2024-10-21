@@ -55,8 +55,8 @@ def search():
         # Search for clothing items based on the query
         cur = mysql_client.cursor()
         cur.execute(
-            "SELECT * FROM clothing_item WHERE LOWER(color) LIKE %s OR LOWER(season) LIKE %s",
-            (f'%{query}%', f'%{query}%')
+            "SELECT * FROM clothing_item WHERE LOWER(color) LIKE %s OR LOWER(season) LIKE %s OR LOWER(cloth_description) LIKE %s",
+            (f'%{query}%', f'%{query}%', f'%{query}%')
         )
         results = cur.fetchall()
         cur.close()
@@ -64,21 +64,6 @@ def search():
         return render_template('search_results.html', results=results)
     
     return redirect(url_for('index'))
-
-
-@app.route('/suggestions', methods=['GET'])
-def suggestions():
-    query = request.args.get('query')
-    if query:
-        cur = mysql_client.cursor()
-        cur.execute(
-            "SELECT DISTINCT color FROM clothing_item WHERE LOWER(color) LIKE %s",
-            (f'%{query.lower()}%',)
-        )
-        suggestions = [row[0] for row in cur.fetchall()]
-        cur.close()
-        return {'suggestions': suggestions}
-    return {'suggestions': []}
 
 
 @app.route('/tops')
