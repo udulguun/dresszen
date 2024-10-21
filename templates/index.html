@@ -255,17 +255,17 @@
                 const commentText = commentInput.value.trim();
                 const commentsList = button.nextElementSibling;
 
-            if (commentText) {
-                const listItem = document.createElement('li');
-                listItem.textContent = commentText;
-                commentsList.appendChild(listItem);
-                commentInput.value = ''; // Clear the input field
-                alert('Comment added!'); // Provide feedback to the user
-            } else {
-                alert('Please enter a comment before submitting.'); // Notify user
-            }
-        }); 
-    });
+                if (commentText) {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = commentText;
+                    commentsList.appendChild(listItem);
+                    commentInput.value = ''; // Clear the input field
+                    alert('Comment added!'); // Provide feedback to the user
+                } else {
+                    alert('Please enter a comment before submitting.'); // Notify user
+                }
+            }); 
+        });
 
 
         // Function to toggle dropdown menu visibility
@@ -276,13 +276,13 @@
 
         // Close dropdown if clicked outside
         window.onclick = function(event) {
-        if (!event.target.matches('.menu-icon')) {
-            const dropdowns = document.getElementsByClassName("dropdown-menu");
-        for (let i = 0; i < dropdowns.length; i++) {
-            dropdowns[i].style.display = "none";
+            if (!event.target.matches('.menu-icon')) {
+                const dropdowns = document.getElementsByClassName("dropdown-menu");
+                for (let i = 0; i < dropdowns.length; i++) {
+                    dropdowns[i].style.display = "none";
+                }
+            }
         }
-    }
-}
 
     </script>
 </body>

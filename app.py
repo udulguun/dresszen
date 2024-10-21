@@ -66,6 +66,21 @@ def search():
     return redirect(url_for('index'))
 
 
+@app.route('/suggestions', methods=['GET'])
+def suggestions():
+    query = request.args.get('query')
+    if query:
+        cur = mysql_client.cursor()
+        cur.execute(
+            "SELECT DISTINCT color FROM clothing_item WHERE LOWER(color) LIKE %s",
+            (f'%{query.lower()}%',)
+        )
+        suggestions = [row[0] for row in cur.fetchall()]
+        cur.close()
+        return {'suggestions': suggestions}
+    return {'suggestions': []}
+
+
 @app.route('/tops')
 def tops():
     return render_template('tops.html')

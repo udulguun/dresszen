@@ -16,7 +16,11 @@
         <img src="{{ url_for('static', filename='img/header.png') }}" alt="Website name" class="website-name-img">
     </div>
     <nav class="search-login-menu">
-        <input type="text" class="search-bar" placeholder="SEARCH" aria-label="SEARCH">
+        <!-- Search bar -->
+        <form action="{{ url_for('search') }}" method="GET" class="search-form">
+            <input type="text" name="query" placeholder="Search clothing..." required class="search-bar">
+            <button type="submit">Search</button>
+        </form>
         <button class="login-btn" aria-label="Login">LOGIN</button>
         <div class="menu-icon" aria-label="Menu" onclick="toggleDropdown()">
             <span class="line"></span>

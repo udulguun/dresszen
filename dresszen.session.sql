@@ -61,7 +61,7 @@ VALUES (
         'female',
         'Burgundy Long sleeve top- Female',
         15,
-        "{{ url_for(' static ', filename=' img / top1.jpg ') }}",
+        'static/img/top1.jpg',
         'spring',
         'top'
     ),
@@ -70,7 +70,7 @@ VALUES (
         'female',
         'Black long dress- Female',
         5,
-        "{{ url_for('static', filename='img/top2.jpg') }}",
+        'static/img/top2.jpg',
         'summer',
         'top'
     ),
@@ -79,7 +79,7 @@ VALUES (
         'male',
         'Cream Puffer Jacket- Male',
         6,
-        "{{ url_for('static', filename='img/top3.jpg') }}",
+        'static/img/top3.jpg',
         'winter',
         'top'
     ),
@@ -88,7 +88,7 @@ VALUES (
         'male',
         'Blue Long Sleeve Shirt- Male',
         5,
-        "{{ url_for('static', filename='img/top4.jpg') }}",
+        'static/img/top4.jpg',
         'autumn',
         'top'
     ),
@@ -97,7 +97,7 @@ VALUES (
         'female',
         'Gray Tailored and Elegant Blouse- Female',
         1,
-        "{{ url_for('static', filename='img/top5.jpg') }}",
+        'static/img/top5.jpg',
         'autumn',
         'top'
     ),
@@ -106,7 +106,7 @@ VALUES (
         'male',
         'White Striped Stretch AIRism Shirt- Male',
         13,
-        "{{ url_for('static', filename='img/top6.jpg') }}",
+        'static/img/top6.jpg',
         'summer',
         'top'
     );
@@ -124,7 +124,7 @@ VALUES (
         'female',
         'Burgundy Tailored Pants- Female',
         15,
-        "{{ url_for('static', filename='img/b1.png') }}",
+        'static/img/b1.png',
         'autumn',
         'bottom'
     ),
@@ -133,7 +133,7 @@ VALUES (
         'female',
         'Black Leather Trousers- Female',
         17,
-        "{{ url_for('static', filename='img/b2.png') }}",
+        'static/img/b2.png',
         'spring',
         'bottom'
     ),
@@ -142,7 +142,7 @@ VALUES (
         'male',
         'Blue Linen Pants- Male',
         12,
-        "{{ url_for('static', filename='img/b3.jpg') }}",
+        'static/img/b3.jpg',
         'summer',
         'bottom'
     ),
@@ -151,7 +151,7 @@ VALUES (
         'male',
         'Cream Trousers- Male',
         2,
-        "{{ url_for('static', filename='img/b4.jpg') }}",
+        'static/img/b4.jpg',
         'spring',
         'bottom'
     ),
@@ -160,7 +160,7 @@ VALUES (
         'male',
         'White Linen Trousers- Male',
         13,
-        "{{ url_for('static', filename='img/b5.jpg') }}",
+        'static/img/b5.jpg',
         'summer',
         'bottom'
     ),
@@ -169,7 +169,7 @@ VALUES (
         'female',
         'White Flared Pants with Cable Pattern- Female',
         11,
-        "{{ url_for('static', filename='img/b6.png') }}",
+        'static/img/b6.png',
         'autumn',
         'bottom'
     );
