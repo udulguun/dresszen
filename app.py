@@ -65,20 +65,6 @@ def acc():
 def brands():
     return render_template('brands.html')
 
-@app.route('/submit_brands', methods=['POST'])
-def submit_brands():
-    selected_brands = request.form.getlist('selectedBrands[]')
-    if not selected_brands:
-        flash('No brands were selected.')
-        return redirect(url_for('brands'))
-
-    # You can process the selected brands here (e.g., save to a database)
-    print(selected_brands)  # Debugging output to ensure it works
-
-    flash('Brands submitted successfully!')
-    return redirect(url_for('index'))
-
-
 @app.route('/saved')
 def saved():
     return render_template('saved.html')
