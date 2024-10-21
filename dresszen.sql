@@ -43,7 +43,8 @@ CREATE TABLE clothing_item (
     color VARCHAR(255),
     cloth_description TEXT,
     brand_id INT,
-    season ENUM('Wnter', 'Fall', 'Spring', 'Summer') type ENUM('Top', 'Bottom', 'Accessory', 'Shoe')
+    season ENUM('Wnter', 'Fall', 'Spring', 'Summer'),
+    type ENUM('Top', 'Bottom', 'Accessory', 'Shoe')
 );
 -- Create Wardrobe table
 CREATE TABLE wardrobe (
