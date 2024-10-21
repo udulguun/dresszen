@@ -6,7 +6,7 @@ CREATE TABLE users (
     username VARCHAR(50) NOT NULL,
     size VARCHAR(30) NOT NULL,
     email VARCHAR(50) NOT NULL,
-    gender ENUM('Male', 'Female'),
+    gender ENUM('male', 'female'),
     age INT,
     password VARCHAR(255) NOT NULL,
     PRIMARY KEY (id)
@@ -14,7 +14,7 @@ CREATE TABLE users (
 -- Create Outfit table
 CREATE TABLE outfit (
     outfit_id INT NOT NULL AUTO_INCREMENT,
-    occasion ENUM('Casual', 'Formal', 'Sport', 'Business', 'Party') NOT NULL,
+    occasion ENUM('casual', 'formal', 'sport', 'business', 'party') NOT NULL,
     PRIMARY KEY (outfit_id)
 );
 -- Create User_Comments table
@@ -44,8 +44,8 @@ CREATE TABLE clothing_item (
     cloth_description TEXT,
     brand_id INT,
     image_url TEXT,
-    season ENUM('Wnter', 'Fall', 'Spring', 'Summer'),
-    type ENUM('Top', 'Bottom', 'Accessory', 'Shoe')
+    season ENUM('winter', 'autumn', 'spring', 'summer'),
+    type ENUM('top', 'bottom', 'accessory', 'shoes')
 );
 -- Create Wardrobe table
 CREATE TABLE wardrobe (
@@ -60,7 +60,7 @@ CREATE TABLE brands (
     brand_id INT NOT NULL AUTO_INCREMENT,
     brand_name VARCHAR(50),
     brand_website TEXT,
-    type ENUM('Luxury', 'Sportswear', 'Fast Fashion') NOT NULL,
+    type ENUM('luxury', 'sportswear', 'fast fashion') NOT NULL,
     PRIMARY KEY (brand_id)
 );
 INSERT INTO brands (brand_name, brand_website, type)
@@ -149,7 +149,7 @@ ALTER TABLE users
 MODIFY username VARCHAR(50) NULL,
     MODIFY size VARCHAR(30) NULL,
     MODIFY email VARCHAR(50) NULL,
-    MODIFY gender ENUM('Male', 'Female') NULL,
+    MODIFY gender ENUM('male', 'female') NULL,
     MODIFY age INT NULL,
     MODIFY password VARCHAR(255) NULL;
 USE dresszenfinder5;
