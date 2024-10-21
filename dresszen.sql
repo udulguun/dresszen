@@ -12,46 +12,46 @@ CREATE TABLE users (
     PRIMARY KEY (id)
 );
 -- Create Outfit table
-CREATE TABLE Outfit (
+CREATE TABLE outfit (
     outfit_id INT NOT NULL AUTO_INCREMENT,
-    Occasion ENUM('Casual', 'Formal', 'Sport', 'Business', 'Party') NOT NULL,
+    occasion ENUM('Casual', 'Formal', 'Sport', 'Business', 'Party') NOT NULL,
     PRIMARY KEY (outfit_id)
 );
 -- Create User_Comments table
-CREATE TABLE User_Comments (
+CREATE TABLE user_Comments (
     comment_id INT NOT NULL AUTO_INCREMENT,
     user_id INT,
     outfit_id INT,
     content TEXT NOT NULL,
     comment_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (comment_id),
-    FOREIGN KEY (user_id) REFERENCES Users(id) ON DELETE CASCADE,
-    FOREIGN KEY (outfit_id) REFERENCES Outfit(outfit_id) ON DELETE CASCADE
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (outfit_id) REFERENCES outfit(outfit_id) ON DELETE CASCADE
 );
 -- Create Interested_In table
-CREATE TABLE Interested_In (
+CREATE TABLE interested_In (
     user_id INT,
     outfit_id INT,
     PRIMARY KEY (user_id, outfit_id),
-    FOREIGN KEY (user_id) REFERENCES Users(id) ON DELETE CASCADE,
-    FOREIGN KEY (outfit_id) REFERENCES Outfit(outfit_id) ON DELETE CASCADE
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (outfit_id) REFERENCES outfit(outfit_id) ON DELETE CASCADE
 );
 -- Create Clothing_Item table
-CREATE TABLE Clothing_Item (
+CREATE TABLE clothing_item (
     cloth_id INT PRIMARY KEY AUTO_INCREMENT,
     size VARCHAR(20),
     color VARCHAR(255),
     cloth_description TEXT,
     brand_id INT,
-    type ENUM('Top', 'Bottom', 'Accessory', 'Shoe')
+    season ENUM('Wnter', 'Fall', 'Spring', 'Summer') type ENUM('Top', 'Bottom', 'Accessory', 'Shoe')
 );
 -- Create Wardrobe table
-CREATE TABLE Wardrobe (
+CREATE TABLE wardrobe (
     user_id INT,
     cloth_id INT,
     PRIMARY KEY (user_id, cloth_id),
     FOREIGN KEY (user_id) REFERENCES Users(id) ON DELETE CASCADE,
-    FOREIGN KEY (cloth_id) REFERENCES Clothing_Item(cloth_id) ON DELETE CASCADE
+    FOREIGN KEY (cloth_id) REFERENCES clothing_item(cloth_id) ON DELETE CASCADE
 );
 -- Create brands table
 CREATE TABLE brands (
@@ -62,7 +62,7 @@ CREATE TABLE brands (
     PRIMARY KEY (brand_id)
 );
 -- Create User_Rating table
-CREATE TABLE User_Rating (
+CREATE TABLE user_Rating (
     user_id INT,
     cloth_id INT,
     rating TINYINT CHECK (
@@ -70,23 +70,23 @@ CREATE TABLE User_Rating (
         AND rating <= 5
     ),
     PRIMARY KEY (user_id, cloth_id),
-    FOREIGN KEY (user_id) REFERENCES Users(id) ON DELETE CASCADE,
-    FOREIGN KEY (cloth_id) REFERENCES Clothing_Item(cloth_id) ON DELETE CASCADE
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (cloth_id) REFERENCES clothing_item(cloth_id) ON DELETE CASCADE
 );
 -- Create Outfit_Clothing_Item table
-CREATE TABLE Outfit_Clothing_Item (
+CREATE TABLE outfit_clothing_Item (
     outfit_id INT,
     cloth_id INT,
     PRIMARY KEY (outfit_id, cloth_id),
-    FOREIGN KEY (outfit_id) REFERENCES Outfit(outfit_id) ON DELETE CASCADE,
-    FOREIGN KEY (cloth_id) REFERENCES Clothing_Item(cloth_id) ON DELETE CASCADE
+    FOREIGN KEY (outfit_id) REFERENCES outfit(outfit_id) ON DELETE CASCADE,
+    FOREIGN KEY (cloth_id) REFERENCES clothing_item(cloth_id) ON DELETE CASCADE
 );
 -- Create belongs_to table
 CREATE TABLE belongs_to (
     cloth_id INT,
     brand_id INT,
     PRIMARY KEY (cloth_id, brand_id),
-    FOREIGN KEY (cloth_id) REFERENCES Clothing_Item(cloth_id) ON DELETE CASCADE,
+    FOREIGN KEY (cloth_id) REFERENCES clothing_item(cloth_id) ON DELETE CASCADE,
     FOREIGN KEY (brand_id) REFERENCES brands(brand_id) ON DELETE CASCADE
 );
 ALTER TABLE users
