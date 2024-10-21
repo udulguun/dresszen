@@ -63,6 +63,7 @@ header {
     border-radius: 5px; /* Rounded corners */
     margin-right: 1rem; /* Space between button and menu icon */
     cursor: pointer; /* Pointer cursor on hover */
+    text-decoration: none;
 }
 
 .login-btn:hover {
@@ -71,7 +72,7 @@ header {
 
 button[type="submit"] {
     background-color: #B98B82; /* Set background color to pink */
-    color: #F9E9EC; /* Set text color to black */
+    color: white; /* Set text color to black */
     border: none; /* Remove border */
     padding: 10px 20px; /* Add padding */
     border-radius: 5px; /* Optional: Add rounded corners */

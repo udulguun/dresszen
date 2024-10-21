@@ -131,7 +131,7 @@ h1 {
 
 button[type="submit"] {
     background-color: #B98B82; /* Set background color to pink */
-    color: #F9E9EC; /* Set text color to black */
+    color: white; /* Set text color to black */
     border: none; /* Remove border */
     padding: 10px 20px; /* Add padding */
     border-radius: 5px; /* Optional: Add rounded corners */
