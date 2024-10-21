@@ -39,14 +39,77 @@ CREATE TABLE interested_In (
 -- Create Clothing_Item table
 CREATE TABLE clothing_item (
     cloth_id INT PRIMARY KEY AUTO_INCREMENT,
-    size VARCHAR(20),
     color VARCHAR(255),
+    gender ENUM('male', 'female'),
     cloth_description TEXT,
     brand_id INT,
     image_url TEXT,
     season ENUM('winter', 'autumn', 'spring', 'summer'),
     type ENUM('top', 'bottom', 'accessory', 'shoes')
 );
+INSERT INTO clothing_item(
+        color,
+        gender,
+        cloth_description,
+        brand_id,
+        image_url,
+        season,
+        type
+    )
+VALUES (
+        'burgundy',
+        'female',
+        'Burgundy Long sleeve top- Female',
+        '15',
+        "{{ url_for(' static ', filename=' img / top1.jpg ') }}",
+        'spring',
+        'top'
+    ),
+    (
+        'black',
+        'female',
+        'Black long dress- Female',
+        '5',
+        "{{ url_for('static', filename='img/top2.jpg') }}",
+        'summer',
+        'top'
+    ),
+    (
+        'cream',
+        'male',
+        'Cream Puffer Jacket- Male',
+        '6',
+        "{{ url_for('static', filename='img/top3.jpg') }}",
+        'winter',
+        'top'
+    ),
+    (
+        'blue',
+        'male',
+        'Blue Long Sleeve Shirt- Male',
+        '5',
+        "{{ url_for('static', filename='img/top4.jpg') }}",
+        'autumn',
+        'top'
+    ),
+    (
+        'gray',
+        'female',
+        'Gray Tailored and Elegant Blouse- Female',
+        '1',
+        "{{ url_for('static', filename='img/top5.jpg') }}",
+        'autumn',
+        'top'
+    ),
+    (
+        'white',
+        'male',
+        'White Striped Stretch AIRism Shirt- Male',
+        '13',
+        "{{ url_for('static', filename='img/top6.jpg') }}",
+        'summer',
+        'top'
+    );
 -- Create Wardrobe table
 CREATE TABLE wardrobe (
     user_id INT,
@@ -155,6 +218,8 @@ MODIFY username VARCHAR(50) NULL,
 USE dresszenfinder5;
 SELECT *
 FROM users;
-drop DATABASE dresszenfinder5;
+SELECT *
+FROM clothing_item;
 SELECT *
 FROM brands;
+drop DATABASE dresszenfinder5;
