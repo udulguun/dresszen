@@ -45,6 +45,27 @@ def register():  # Changed function name from `index` to `register`
     return render_template('register.html')
 
 
+@app.route('/search', methods=['GET'])
+def search():
+    query = request.args.get('query')
+    if query:
+        # Normalize the query
+        query = query.lower()
+
+        # Search for clothing items based on the query
+        cur = mysql_client.cursor()
+        cur.execute(
+            "SELECT * FROM clothing_item WHERE LOWER(color) LIKE %s OR LOWER(season) LIKE %s",
+            (f'%{query}%', f'%{query}%')
+        )
+        results = cur.fetchall()
+        cur.close()
+        
+        return render_template('search_results.html', results=results)
+    
+    return redirect(url_for('index'))
+
+
 @app.route('/tops')
 def tops():
     return render_template('tops.html')
