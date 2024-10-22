@@ -188,6 +188,146 @@ VALUES (
         'bottom',
         'bottom6.html'
     );
+INSERT INTO clothing_item(
+        color,
+        gender,
+        cloth_description,
+        brand_id,
+        image_url,
+        season,
+        type,
+        page_html
+    )
+VALUES (
+        'creme',
+        'female',
+        'Creme Platform Boots-Female',
+        15,
+        'static/img/imgshoe1.jpeg',
+        'autumn',
+        'shoes',
+        'shoes1.html'
+    ),
+    (
+        'black',
+        'male',
+        'Black Platform Boots-Male',
+        6,
+        'static/img/imgshoe2.jpeg',
+        'spring',
+        'shoes',
+        'shoes2.html'
+    ),
+    (
+        'burgundy',
+        'female',
+        'Burgundy Mary Janes-Female',
+        16,
+        'static/img/imgshoe3.jpeg',
+        'spring',
+        'shoes',
+        'shoes3.html'
+    ),
+    (
+        'gray',
+        'male',
+        'Gray Sneakers-Male',
+        4,
+        'static/img/imgshoe4.jpeg',
+        'summer',
+        'shoes',
+        'shoes4.html'
+    ),
+    (
+        'burgundy',
+        'female',
+        'Burgundy Medium Heels-Female',
+        5,
+        'static/img/imgshoe5.jpeg',
+        'summer',
+        'shoes',
+        'shoes5.html'
+    ),
+    (
+        'black',
+        'male',
+        'Black Leather Shoes-Male',
+        7,
+        'static/img/imgshoe6.jpeg',
+        'autumn',
+        'shoes',
+        'shoes6.html'
+    );
+INSERT INTO clothing_item(
+        color,
+        gender,
+        cloth_description,
+        brand_id,
+        image_url,
+        season,
+        type,
+        page_html
+    )
+VALUES (
+        'silver',
+        'male',
+        'Silver Gray Rings-Male',
+        13,
+        'static/img/RG1.jpeg',
+        'autumn',
+        'accessory',
+        'acc1.html'
+    ),
+    (
+        'brown',
+        'female',
+        'Black Brown Glasses-Female',
+        14,
+        'static/img/E3.jpeg',
+        'summer',
+        'accessory',
+        'acc2.html'
+    ),
+    (
+        'black',
+        'male',
+        'Black Leather Watch-Male',
+        12,
+        'static/img/CL1.jpeg',
+        'spring',
+        'accessory',
+        'acc3.html'
+    ),
+    (
+        'gold',
+        'female',
+        'Gold Creme Ring-Female',
+        17,
+        'static/img/R2.jpeg',
+        'spring',
+        'accessory',
+        'acc4.html'
+    ),
+    (
+        'black',
+        'male',
+        'Black Crossbody Bag-Male',
+        9,
+        'static/img/BG1.jpeg',
+        'summer',
+        'accessory',
+        'acc5.html'
+    ),
+    (
+        'creme',
+        'female',
+        'White Creme Hat-Female',
+        15,
+        'static/img/H2.jpeg',
+        'summer',
+        'accessory',
+        'acc6.html'
+    );
 -- Create Wardrobe table
 CREATE TABLE wardrobe (
     user_id INT,
