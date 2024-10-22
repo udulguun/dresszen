@@ -190,6 +190,13 @@ h1 {
 .grid-item p {
     margin: 0 0 15px;
     font-size: 14px;
+    text-decoration: none !important;
+    color: black;
+}
+
+.grid-item a {
+    color: black; /* Change link color to black */
+    text-decoration: none; /* Remove underline from links */
 }
 
 .grid-item button {
