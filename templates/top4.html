@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | DressZeN Finder</title>
-    <link rel="stylesheet" href="{{ url_for(filename='individual_pages.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/individual_pages.css') }}">
 </head>
 
 <body>
@@ -56,7 +56,7 @@
 
     <div class="grid-container">
         <div class="grid-item">
-            <img src="{{ url_for('static', filename='img/top4.jpg') }}" alt="Top 4">
+            <img src="{{ url_for('static', filename='img/top4.jpg') }}" alt="Top 3">
             <h2>Blue Long Sleeve Shirt- Male</h2>
             <p>Zara</p>
             <button>SAVE ITEM</button>

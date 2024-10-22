@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BOTTOMS | DressZeN Finder</title>
+    <title>BOTTOM 1 | DressZeN Finder</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/individual_pages.css') }}">
 </head>
+
 <body>
     <header class="header">
         <div class="logo-container">
@@ -18,10 +19,13 @@
 
         <nav class="search-login-menu">
             <!-- Search bar -->
-            <input type="text" class="search-bar" placeholder="SEARCH" aria-label="SEARCH">
+            <form action="{{ url_for('search') }}" method="GET" class="search-form">
+                <input type="text" name="query" placeholder="Search..." required class="search-bar">
+                <button type="submit">Search</button>
+            </form>
             
-            <!-- Login button -->
-            <button class="login-btn" aria-label="Login">LOGIN</button>
+            <!-- Logout button -->
+            <a href="{{ url_for('signout') }} " class="login-btn">LOGOUT</a>
 
             <!-- Three lines menu -->
             <div class="menu-icon" aria-label="Menu" onclick="toggleDropdown()">
@@ -39,28 +43,32 @@
         </nav>
     </header>
 
+    <!-- Horizontal line separating header and task bar -->
+    <hr class="separator-line">
+
     <!-- Task Bar -->
     <nav class="task-bar">
-        <a href="{{ url_for('tops') }}"><button class="task-btn">TOPS</a></button>
-        <a href="{{ url_for('bottoms') }}"><button class="task-btn">BOTTOMS</a></button>
-        <a href="{{ url_for('shoes') }}"><button class="task-btn">SHOES</a></button>
-        <a href="{{ url_for('acc') }}"><button class="task-btn">ACCESSORIES</a></button>
+        <a href="{{ url_for('tops') }}"><button class="task-btn">TOPS</button></a>
+        <a href="{{ url_for('bottoms') }}"><button class="task-btn">BOTTOMS</button></a>
+        <a href="{{ url_for('shoes') }}"><button class="task-btn">SHOES</button></a>
+        <a href="{{ url_for('acc') }}"><button class="task-btn">ACCESSORIES</button></a>
     </nav>
-
     
     <div class="grid-container">
         <div class="grid-item">
-            <img src="{{ url_for('static', filename='img/b1.png') }}" alt="Assessor Image 1">
+            <img src="{{ url_for('static', filename='img/b1.png') }}" alt="Bottom 1">
             <h2>Burgundy Tailored Pants- Female</h2>
             <p>Bershka</p>
             <button>SAVE ITEM</button>
+        </div>
     </div>
 
     <!-- Horizontal line separating body and footer -->
     <hr class="separator-line">
 
-    <footer class="">
-        <p>&copy; 2024 DressZeN Finder | <a href="{{ url_for('imprint') }}">Imprint</p>
+    <footer>
+        <p>&copy; 2024 DressZeN Finder | <a href="{{ url_for('imprint') }}">Imprint</a></p>
+        <p>&copy; 2024 DressZeN Finder | <a href="{{ url_for('maintenance') }}">Maintenance</a></p>
     </footer>
 
     <script>
