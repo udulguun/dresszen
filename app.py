@@ -1,7 +1,3 @@
-# import os
-# import sys
-# sys.path.insert(0, '/home/udulguun/public_html/dresszen/env/lib/python3.12/site-packages')
-
 from flask import Flask, render_template, request, redirect, url_for, flash, session, send_from_directory
 from flask_bcrypt import Bcrypt
 
