@@ -14,7 +14,8 @@ mysql_client = mysql.connector.connect(
     host="localhost",
     user="udulguun",
     password="rHmQxy",
-    database="dresszenfinder5"
+    database="dresszenfinder5",
+    buffered=True
 )
 
 @app.route('/', methods=['GET', 'POST'])
