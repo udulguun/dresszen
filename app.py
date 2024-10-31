@@ -12,8 +12,8 @@ import mysql.connector
 
 mysql_client = mysql.connector.connect(
     host="localhost",
-    user="udulguun",
-    password="rHmQxy",
+    user="root",
+    password="new_password",
     database="dresszenfinder5"
 )
 
@@ -95,9 +95,19 @@ def saved():
 def imprint():
     return render_template('imprint.html')
 
+@app.route('/maintenance_err')
+def maintenance_err():
+    return render_template('maintenance_err.html')
+
+
 @app.route('/maintenance')
 def maintenance():
-    return render_template('maintenance.html')
+    # Check if the user is logged in and is 'admin'
+    if 'loggedin' in session and session['username'] == 'admin':
+        return render_template('maintenance.html')
+    else:
+        return redirect(url_for('maintenance_err'))
+
 
 
 @app.route('/index')  # The second `index` function is kept here
@@ -133,4 +143,4 @@ def signin():
     return render_template('signin.html', msg=msg)
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=8006)
+    app.run()
