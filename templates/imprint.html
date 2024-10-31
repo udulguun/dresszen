@@ -20,10 +20,13 @@
 
         <nav class="search-login-menu">
             <!-- Search bar -->
-            <input type="text" class="search-bar" placeholder="SEARCH" aria-label="SEARCH">
+            <form action="{{ url_for('search') }}" method="GET" class="search-form">
+                <input type="text" name="query" placeholder="Search..." required class="search-bar">
+                <button type="submit">Search</button>
+            </form>
             
-            <!-- Login button -->
-            <button class="login-btn" aria-label="Login">LOGIN</button>
+            <!-- Logout button -->
+            <a href="{{ url_for('signout') }} " class="login-btn">LOGOUT</a>
 
             <!-- Three lines menu -->
             <div class="menu-icon" aria-label="Menu" onclick="toggleDropdown()">
