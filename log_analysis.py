@@ -9,7 +9,7 @@ error_log_path = 'C:/Apache24/logs/error.log'    # Example path
 
 # Regex patterns to match log entries
 access_pattern = re.compile(r'(?P<ip>[\d\.]+) - - \[(?P<date>[^\]]+)\] "(?P<request>[^"]+)" (?P<status>\d+) (?P<size>\d+) "(?P<referer>[^"]+)" "(?P<user_agent>[^"]+)"')
-error_pattern = re.compile(r'^\[(?P<date>[^\]]+)\] \[(?P<level>[^\]]+)\] \[(?P<module>[^\]]+\] (?P<message>.*)')
+error_pattern = re.compile(r'^\[(?P<date>[^\]]+)\] \[(?P<level>[^\]]+)\] \[(?P<module>[^\]]+)\] (?P<message>.*)')
 
 # Initialize lists to hold extracted data
 access_data = []
