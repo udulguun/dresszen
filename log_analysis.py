@@ -1,86 +1,96 @@
-import re
 import pandas as pd
 import matplotlib.pyplot as plt
+import re
 from datetime import datetime
 
-# Log file paths (change these to your actual log file locations)
-access_log_path = 'C:/Apache24/logs/access.log'  # Example path
-error_log_path = 'C:/Apache24/logs/error.log'    # Example path
+# Log file path
+log_file_path = 'access.log'  # Ensure this is the correct path to your access.log
 
-# Regex patterns to match log entries
-access_pattern = re.compile(r'(?P<ip>[\d\.]+) - - \[(?P<date>[^\]]+)\] "(?P<request>[^"]+)" (?P<status>\d+) (?P<size>\d+) "(?P<referer>[^"]+)" "(?P<user_agent>[^"]+)"')
-error_pattern = re.compile(r'^\[(?P<date>[^\]]+)\] \[(?P<level>[^\]]+)\] \[(?P<module>[^\]]+)\] (?P<message>.*)')
-
-# Initialize lists to hold extracted data
-access_data = []
+# Initialize lists to hold log data
+log_data = []
 error_data = []
 
-# Read the access log
-with open(access_log_path, 'r') as log_file:
+# Read and parse the log file
+with open(log_file_path, 'r') as log_file:
     for line in log_file:
-        match = access_pattern.match(line)
-        if match:
-            ip = match.group('ip')
-            date_str = match.group('date')
-            request = match.group('request')
-            user_agent = match.group('user_agent')
-            date = datetime.strptime(date_str.split()[0], '%d/%b/%Y:%H:%M:%S')
-            page = request.split(' ')[1]  # Extract the page from the request
-            access_data.append({'ip': ip, 'date': date, 'page': page, 'user_agent': user_agent})
-
-# Read the error log
-with open(error_log_path, 'r') as log_file:
-    for line in log_file:
-        match = error_pattern.match(line)
+        # Pattern to extract relevant information from log entries
+        log_pattern = re.compile(r'(?P<date>[\d\-]+ [\d\:]+) - (?P<method>\w+) (?P<url>[^\s]+)')
+        match = log_pattern.search(line)
         if match:
             date_str = match.group('date')
-            level = match.group('level')
-            module = match.group('module')
-            message = match.group('message')
-            date = datetime.strptime(date_str, '%a %b %d %H:%M:%S.%f %Y')
-            error_data.append({'date': date, 'level': level, 'module': module, 'message': message})
+            method = match.group('method')
+            url = match.group('url')
 
-# Create DataFrames
-access_df = pd.DataFrame(access_data)
+            # Convert the date string to a datetime object
+            date = datetime.strptime(date_str, '%Y-%m-%d %H:%M')
+
+            # Append the parsed log data
+            log_data.append({'date': date, 'method': method, 'url': url})
+
+        # You can also add error log parsing here (if you have a specific pattern)
+        # For example, if you log errors as: "YYYY-MM-DD HH:MM - ERROR - message"
+        error_pattern = re.compile(r'(?P<date>[\d\-]+ [\d\:]+) - ERROR - (?P<message>.*)')
+        error_match = error_pattern.search(line)
+        if error_match:
+            error_date_str = error_match.group('date')
+            error_message = error_match.group('message')
+            error_date = datetime.strptime(error_date_str, '%Y-%m-%d %H:%M')
+            error_data.append({'date': error_date, 'message': error_message})
+
+# Create DataFrames from the log data
+df = pd.DataFrame(log_data)
 error_df = pd.DataFrame(error_data)
 
-# Group by page and count accesses
-page_access_count = access_df.groupby(['page', 'ip']).size().reset_index(name='count')
+# Analyze page access counts
+page_access_count = df.groupby('url').size().reset_index(name='count')
 
-# Create a timeline of accesses
-timeline = access_df.groupby(['date', 'page']).size().unstack(fill_value=0)
+# Save page access analysis to a CSV file
+page_access_count.to_csv('page_access_count.csv', index=False)
 
-# Plot the access count for each page
-plt.figure(figsize=(12, 6))
-for page in timeline.columns:
-    plt.plot(timeline.index, timeline[page], label=page)
+# Create a bar plot for page access counts
+plt.figure(figsize=(10, 6))
+plt.barh(page_access_count['url'], page_access_count['count'], color='skyblue')
+plt.xlabel('Number of Accesses')
+plt.ylabel('Page URL')
+plt.title('Page Access Count')
+plt.tight_layout()
+plt.savefig('page_access_count.png')
+plt.show()  # Display the plot if running locally
 
-plt.title('Page Access Timeline')
+# Create a timeline for page access
+df['date'] = pd.to_datetime(df['date'])  # Ensure 'date' is in datetime format
+page_access_timeline = df.groupby('date').size().reset_index(name='count')
+
+# Save page access timeline to a CSV file
+page_access_timeline.to_csv('page_access_timeline.csv', index=False)
+
+# Create a line plot for page access timeline
+plt.figure(figsize=(10, 6))
+plt.plot(page_access_timeline['date'], page_access_timeline['count'], marker='o')
 plt.xlabel('Date')
-plt.ylabel('Access Count')
-plt.legend()
+plt.ylabel('Number of Accesses')
+plt.title('Page Access Timeline')
 plt.xticks(rotation=45)
 plt.tight_layout()
 plt.savefig('page_access_timeline.png')
-plt.show()
+plt.show()  # Display the plot if running locally
 
-# Save page access statistics to CSV
-page_access_count.to_csv('page_access_statistics.csv', index=False)
+# Analyze error occurrences
+if not error_df.empty:
+    error_occurrence_timeline = error_df.groupby('date').size().reset_index(name='count')
 
-# Create a timeline for errors
-error_timeline = error_df.groupby(['date']).size()
+    # Save error occurrence timeline to a CSV file
+    error_occurrence_timeline.to_csv('error_occurrence_timeline.csv', index=False)
 
-# Plot the error occurrences
-plt.figure(figsize=(12, 6))
-plt.plot(error_timeline.index, error_timeline.values, marker='o', color='r', label='Error Count')
-plt.title('Error Occurrences Timeline')
-plt.xlabel('Date')
-plt.ylabel('Error Count')
-plt.xticks(rotation=45)
-plt.tight_layout()
-plt.legend()
-plt.savefig('error_occurrences_timeline.png')
-plt.show()
-
-# Save error statistics to CSV
-error_df.to_csv('error_statistics.csv', index=False)
+    # Create a line plot for error occurrence timeline
+    plt.figure(figsize=(10, 6))
+    plt.plot(error_occurrence_timeline['date'], error_occurrence_timeline['count'], color='red', marker='o')
+    plt.xlabel('Date')
+    plt.ylabel('Number of Errors')
+    plt.title('Error Occurrence Timeline')
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    plt.savefig('error_occurrence_timeline.png')
+    plt.show()  # Display the plot if running locally
+else:
+    print("No errors found in the log file.")
