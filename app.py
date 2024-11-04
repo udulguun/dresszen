@@ -17,14 +17,6 @@ mysql_client = mysql.connector.connect(
     buffered=True
 )
 
-
-# Configure logging
-logging.basicConfig(filename='access.log', level=logging.INFO)
-
-@app.before_request
-def log_request_info():
-    app.logger.info('Request: %s %s', request.method, request.url)
-
 @app.route('/', methods=['GET', 'POST'])
 def register():  # Changed function name from `index` to `register`
     if request.method == 'POST':
