@@ -1,22 +1,22 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, session, send_from_directory
 from flask_bcrypt import Bcrypt
+import mysql.connector
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'  # Set a secret key for session management
+app.secret_key = 'your_secret_key'
 app.config['MYSQL_HOST'] = "localhost"
 app.config['MYSQL_USER'] = "root"
 app.config['MYSQL_PASSWORD'] = "new_password"
 app.config['MYSQL_DB'] = "udulguun_db"
 
-import mysql.connector
-
 mysql_client = mysql.connector.connect(
     host="localhost",
-    user="udulguun",
-    password="rHmQxy",
+    user="root",
+    password="new_password",
     database="dresszenfinder5",
     buffered=True
 )
+
 
 @app.route('/', methods=['GET', 'POST'])
 def register():  # Changed function name from `index` to `register`
