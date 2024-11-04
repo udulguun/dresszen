@@ -5,14 +5,14 @@ import mysql.connector
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 app.config['MYSQL_HOST'] = "localhost"
-app.config['MYSQL_USER'] = "root"
-app.config['MYSQL_PASSWORD'] = "new_password"
+app.config['MYSQL_USER'] = "udulguun"
+app.config['MYSQL_PASSWORD'] = "rHmQxy"
 app.config['MYSQL_DB'] = "udulguun_db"
 
 mysql_client = mysql.connector.connect(
     host="localhost",
-    user="root",
-    password="new_password",
+    user="udulguun",
+    password="rHmQxy",
     database="dresszenfinder5",
     buffered=True
 )
