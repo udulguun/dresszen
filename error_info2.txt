@@ -1,0 +1,16 @@
+Date: 18/Oct/2024 15:48:41, IP: 80.245.132.90, Error: ModuleNotFoundError: No module named 'flask'
+Date: 19/Oct/2024 15:51:08, IP: 80.245.132.90, Error: ModuleNotFoundError: No module named 'flask'
+Date: 18/Oct/2024 15:52:52, IP: 172.225.240.194, Error: ModuleNotFoundError: No module named 'flask'
+Date: 18/Oct/2024 15:52:52, IP: 172.225.240.194, Error: ModuleNotFoundError: No module named 'flask'
+Date: 23/Oct/2024 06:34:59, IP: 52.189.74.240, Error: ModuleNotFoundError: No module named 'flask'
+Date: 23/Oct/2024 10:21:30,035, IP: 80.245.132.90, Error: _mysql_connector.MySQLInterfaceError: Table 'dresszenfinder5.clothing_item' doesn't exist
+Date: 20/Oct/2024 10:29:56,705, IP: 80.245.132.90, Error: _mysql_connector.MySQLInterfaceError: Deadlock found when trying to get lock; try restarting transaction
+Date: 1/Nov/2024 15:48:41, IP: 80.245.132.90, Error: ModuleNotFoundError: No module named 'flask'
+Date: 1/Nov/2024 15:51:08, IP: 52.189.74.240, Error: ModuleNotFoundError: No module named 'flask'
+Date: 29/Oct/2024 15:52:52, IP: 172.225.240.194, Error: ModuleNotFoundError: No module named 'flask'
+Date: 3/Nov/2024 15:52:52, IP: 172.225.240.194, Error: ModuleNotFoundError: No module named 'flask'
+Date: 3/Nov/2024 06:34:59, IP: 52.189.74.240, Error: ModuleNotFoundError: No module named 'flask'
+Date: 21/Oct/2024 10:21:30,035, IP: 80.245.132.90, Error: _mysql_connector.MySQLInterfaceError: Table 'dresszenfinder5.clothing_item' doesn't exist
+Date: 20/Oct/2024 10:29:56,705, IP: 80.245.132.90, Error: _mysql_connector.MySQLInterfaceError: Deadlock found when trying to get lock; try restarting transaction
+
+
