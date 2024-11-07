@@ -1,0 +1,88 @@
+[Mon Nov 04 00:00:00.762285 2024] [mpm_prefork:notice] [pid 15764] AH00163: Apache/2.4.58 (Ubuntu) mod_wsgi/5.0.0 Python/3.12 configured -- resuming normal operations
+[Mon Nov 04 00:00:00.762309 2024] [core:notice] [pid 15764] AH00094: Command line: '/usr/sbin/apache2'
+[Mon Nov 04 00:30:58.139553 2024] [core:info] [pid 203898] [client 45.149.241.114:37314] AH00128: File does not exist: /var/www/html/.env
+[Mon Nov 04 00:42:49.240146 2024] [core:info] [pid 203896] [client 64.62.156.50:31011] AH00128: File does not exist: /var/www/html/favicon.ico
+[Mon Nov 04 00:43:40.103382 2024] [core:info] [pid 204189] [client 64.62.156.51:3123] AH00128: File does not exist: /var/www/html/geoserver/web/
+[Mon Nov 04 01:05:52.204751 2024] [reqtimeout:info] [pid 203898] [client 61.3.113.74:41269] AH01382: Request body read timeout
+[Mon Nov 04 01:25:02.197764 2024] [core:info] [pid 203900] [client 185.224.128.83:52496] AH00128: File does not exist: /var/www/html/cgi-bin/luci/;stok=/locale
+[Mon Nov 04 01:33:22.633906 2024] [core:info] [pid 203893] [client 185.161.202.182:55478] AH00128: File does not exist: /var/www/html/favicon.ico, referer: http://5.75.182.107/~tnguyen/
+[Mon Nov 04 03:22:37.227540 2024] [core:info] [pid 203900] [client 87.120.113.56:45222] AH00128: File does not exist: /var/www/html/.env
+[Mon Nov 04 03:48:23.193685 2024] [core:info] [pid 203896] [client 129.146.74.111:64237] AH00128: File does not exist: /var/www/html/.env
+[Mon Nov 04 03:49:05.182782 2024] [core:info] [pid 203895] [client 129.146.74.111:64812] AH00128: File does not exist: /var/www/html/sendgrid/.env
+[Mon Nov 04 03:53:25.920868 2024] [core:error] [pid 203900] [client 223.100.248.31:43144] AH10244: invalid URI path (/cgi-bin/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/bin/sh)
+[Mon Nov 04 03:53:27.357551 2024] [core:error] [pid 203893] [client 223.100.248.31:43156] AH10244: invalid URI path (/cgi-bin/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/bin/sh)
+[Mon Nov 04 03:53:28.744374 2024] [core:info] [pid 203896] [client 223.100.248.31:43166] AH00128: File does not exist: /var/www/html/hello.world
+[Mon Nov 04 03:53:29.690656 2024] [core:info] [pid 203896] [client 223.100.248.31:43166] AH00128: File does not exist: /var/www/html/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+[Mon Nov 04 03:53:30.696930 2024] [core:info] [pid 203896] [client 223.100.248.31:43166] AH00128: File does not exist: /var/www/html/vendor/phpunit/phpunit/Util/PHP/eval-stdin.php
+[Mon Nov 04 03:53:31.711586 2024] [core:info] [pid 203896] [client 223.100.248.31:43166] AH00128: File does not exist: /var/www/html/vendor/phpunit/src/Util/PHP/eval-stdin.php
+[Mon Nov 04 03:53:32.685440 2024] [core:info] [pid 203896] [client 223.100.248.31:43166] AH00128: File does not exist: /var/www/html/vendor/phpunit/Util/PHP/eval-stdin.php
+[Mon Nov 04 03:53:33.619185 2024] [core:info] [pid 203896] [client 223.100.248.31:43166] AH00128: File does not exist: /var/www/html/vendor/phpunit/phpunit/LICENSE/eval-stdin.php
+[Mon Nov 04 03:53:34.487826 2024] [core:info] [pid 203896] [client 223.100.248.31:43166] AH00128: File does not exist: /var/www/html/vendor/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+[Mon Nov 04 03:53:35.376188 2024] [core:info] [pid 203896] [client 223.100.248.31:43166] AH00128: File does not exist: /var/www/html/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+[Mon Nov 04 03:53:36.410085 2024] [core:info] [pid 203896] [client 223.100.248.31:43166] AH00128: File does not exist: /var/www/html/phpunit/phpunit/Util/PHP/eval-stdin.php
+[Mon Nov 04 03:53:37.430311 2024] [core:info] [pid 203896] [client 223.100.248.31:43166] AH00128: File does not exist: /var/www/html/phpunit/src/Util/PHP/eval-stdin.php
+[Mon Nov 04 03:53:38.521604 2024] [core:info] [pid 203896] [client 223.100.248.31:43166] AH00128: File does not exist: /var/www/html/phpunit/Util/PHP/eval-stdin.php
+[Mon Nov 04 03:53:39.512495 2024] [core:info] [pid 203896] [client 223.100.248.31:43166] AH00128: File does not exist: /var/www/html/lib/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+[Mon Nov 04 03:53:40.454076 2024] [core:info] [pid 203896] [client 223.100.248.31:43166] AH00128: File does not exist: /var/www/html/lib/phpunit/phpunit/Util/PHP/eval-stdin.php
+[Mon Nov 04 03:53:41.446135 2024] [core:info] [pid 203896] [client 223.100.248.31:43166] AH00128: File does not exist: /var/www/html/lib/phpunit/src/Util/PHP/eval-stdin.php
+[Mon Nov 04 03:53:42.590142 2024] [core:info] [pid 203896] [client 223.100.248.31:43166] AH00128: File does not exist: /var/www/html/lib/phpunit/Util/PHP/eval-stdin.php
+[Mon Nov 04 03:53:43.377480 2024] [core:info] [pid 203896] [client 223.100.248.31:43166] AH00128: File does not exist: /var/www/html/lib/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+[Mon Nov 04 03:53:44.466523 2024] [core:info] [pid 203896] [client 223.100.248.31:43166] AH00128: File does not exist: /var/www/html/laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+[Mon Nov 04 03:53:45.520154 2024] [core:info] [pid 203896] [client 223.100.248.31:43166] AH00128: File does not exist: /var/www/html/www/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+[Mon Nov 04 03:53:46.510563 2024] [core:info] [pid 203896] [client 223.100.248.31:43166] AH00128: File does not exist: /var/www/html/ws/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+[Mon Nov 04 03:53:47.473644 2024] [core:info] [pid 203896] [client 223.100.248.31:43166] AH00128: File does not exist: /var/www/html/yii/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+[Mon Nov 04 03:53:48.546840 2024] [core:info] [pid 203896] [client 223.100.248.31:43166] AH00128: File does not exist: /var/www/html/zend/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+[Mon Nov 04 03:53:49.159557 2024] [core:info] [pid 203896] [client 223.100.248.31:43166] AH00128: File does not exist: /var/www/html/ws/ec/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+[Mon Nov 04 03:53:49.676159 2024] [core:info] [pid 203896] [client 223.100.248.31:43166] AH00128: File does not exist: /var/www/html/V2/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+[Mon Nov 04 03:53:50.651373 2024] [core:info] [pid 203896] [client 223.100.248.31:43166] AH00128: File does not exist: /var/www/html/tests/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+[Mon Nov 04 03:53:51.056355 2024] [core:info] [pid 203896] [client 223.100.248.31:43166] AH00128: File does not exist: /var/www/html/test/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+[Mon Nov 04 03:53:51.936571 2024] [core:info] [pid 203896] [client 223.100.248.31:43166] AH00128: File does not exist: /var/www/html/testing/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+[Mon Nov 04 03:53:52.239378 2024] [core:info] [pid 203896] [client 223.100.248.31:43166] AH00128: File does not exist: /var/www/html/api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+[Mon Nov 04 03:53:52.590376 2024] [core:info] [pid 203896] [client 223.100.248.31:43166] AH00128: File does not exist: /var/www/html/demo/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+[Mon Nov 04 03:53:52.915979 2024] [core:info] [pid 203896] [client 223.100.248.31:43166] AH00128: File does not exist: /var/www/html/cms/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+[Mon Nov 04 03:53:53.367704 2024] [core:info] [pid 203896] [client 223.100.248.31:43166] AH00128: File does not exist: /var/www/html/crm/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+[Mon Nov 04 03:53:53.759492 2024] [core:info] [pid 203896] [client 223.100.248.31:43166] AH00128: File does not exist: /var/www/html/admin/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+[Mon Nov 04 03:53:54.116393 2024] [core:info] [pid 203896] [client 223.100.248.31:43166] AH00128: File does not exist: /var/www/html/backup/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+[Mon Nov 04 03:53:54.464728 2024] [core:info] [pid 203896] [client 223.100.248.31:43166] AH00128: File does not exist: /var/www/html/blog/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+[Mon Nov 04 03:53:54.828304 2024] [core:info] [pid 203896] [client 223.100.248.31:43166] AH00128: File does not exist: /var/www/html/workspace/drupal/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+[Mon Nov 04 03:53:55.301544 2024] [core:info] [pid 203896] [client 223.100.248.31:43166] AH00128: File does not exist: /var/www/html/panel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+[Mon Nov 04 03:53:56.222569 2024] [core:info] [pid 203896] [client 223.100.248.31:43166] AH00128: File does not exist: /var/www/html/public/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+[Mon Nov 04 03:53:57.299071 2024] [core:info] [pid 203896] [client 223.100.248.31:43166] AH00128: File does not exist: /var/www/html/apps/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+[Mon Nov 04 03:53:58.455365 2024] [core:info] [pid 203896] [client 223.100.248.31:43166] AH00128: File does not exist: /var/www/html/app/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+[Mon Nov 04 03:54:01.821950 2024] [core:info] [pid 203896] [client 223.100.248.31:43166] AH00128: File does not exist: /var/www/html/public/index.php
+[Mon Nov 04 03:54:06.771720 2024] [core:info] [pid 203896] [client 223.100.248.31:43166] AH00128: File does not exist: /var/www/html/containers/json
+[Mon Nov 04 05:44:06.503661 2024] [core:info] [pid 203895] [client 143.110.210.225:46674] AH00128: File does not exist: /var/www/html/favicon.ico
+[Mon Nov 04 05:44:42.647123 2024] [core:info] [pid 203898] [client 178.128.19.247:44958] AH00128: File does not exist: /var/www/html/connector_server/
+[Mon Nov 04 06:28:19.252233 2024] [core:info] [pid 208919] [client 138.197.171.110:56074] AH00128: File does not exist: /var/www/html/connector_server/
+[Mon Nov 04 07:37:24.642639 2024] [core:info] [pid 203895] [client 138.68.82.192:26673] AH00128: File does not exist: /var/www/html/sdk
+[Mon Nov 04 07:37:24.642655 2024] [core:info] [pid 203900] [client 138.68.82.192:3063] AH00128: File does not exist: /var/www/html/odinhttpcall1730705844
+[Mon Nov 04 07:37:24.659509 2024] [core:info] [pid 208919] [client 138.68.82.192:3897] AH00128: File does not exist: /var/www/html/HNAP1
+[Mon Nov 04 07:37:24.663498 2024] [core:info] [pid 203893] [client 138.68.82.192:27879] AH00128: File does not exist: /var/www/html/evox/about
+[Mon Nov 04 07:37:25.273737 2024] [core:info] [pid 203895] [client 167.172.184.246:49804] AH00128: File does not exist: /var/www/html/solr/admin/info/system
+[Mon Nov 04 07:37:25.281545 2024] [core:info] [pid 203898] [client 167.172.184.246:49820] AH00128: File does not exist: /var/www/html/solr/admin/cores
+[Mon Nov 04 07:37:26.323074 2024] [core:info] [pid 203900] [client 167.172.189.16:46706] AH00128: File does not exist: /var/www/html/cgi-bin/authLogin.cgi
+[Mon Nov 04 07:37:26.654899 2024] [core:info] [pid 208919] [client 167.172.189.16:46708] AH00128: File does not exist: /var/www/html/query
+[Mon Nov 04 07:37:56.770262 2024] [core:info] [pid 203893] [client 167.172.187.192:61096] AH00128: File does not exist: /var/www/html/v2/_catalog
+[Mon Nov 04 08:31:19.832282 2024] [core:info] [pid 204189] [client 79.213.181.141:49868] AH00128: File does not exist: /home/mvalentinov/public_html/src/client/home/index.html, referer: http://teaching/~mvalentinov/
+[Mon Nov 04 08:31:19.886246 2024] [core:info] [pid 204189] [client 79.213.181.141:49868] AH00128: File does not exist: /var/www/html/favicon.ico, referer: http://teaching/~mvalentinov/src/client/home/index.html
+[Mon Nov 04 08:31:39.257457 2024] [core:info] [pid 203895] [client 79.213.181.141:49872] AH00128: File does not exist: /home/mvalentinov/public_html/src/client/home/index.html, referer: http://teaching/~mvalentinov/
+[Mon Nov 04 08:31:39.950718 2024] [core:info] [pid 203895] [client 79.213.181.141:49872] AH00128: File does not exist: /home/mvalentinov/public_html/src/client/home/index.html, referer: http://teaching/~mvalentinov/
+[Mon Nov 04 08:32:31.383603 2024] [reqtimeout:info] [pid 203898] [client 79.213.181.141:51334] AH01382: Request header read timeout
+[Mon Nov 04 09:12:30.003191 2024] [core:info] [pid 203896] [client 185.82.219.179:64000] AH00128: File does not exist: /var/www/html/.env
+[Mon Nov 04 09:23:59.335999 2024] [core:error] [pid 203895] [client 79.213.181.141:42898] AH10244: invalid URI path (/cgi-bin/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/whoami)
+[Mon Nov 04 09:24:25.622390 2024] [core:error] [pid 203898] [client 79.213.181.141:46762] AH10244: invalid URI path (/cgi-bin/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65//bin/sh)
+[Mon Nov 04 09:24:28.491136 2024] [core:error] [pid 203900] [client 79.213.181.141:46770] AH10244: invalid URI path (/cgi-bin/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65//bin/sh)
+[Mon Nov 04 09:26:33.643453 2024] [core:info] [pid 208919] [client 178.215.238.85:45114] AH00128: File does not exist: /var/www/html/login.rsp
+[Mon Nov 04 09:27:20.240675 2024] [core:info] [pid 203893] [client 79.213.181.141:40602] AH00128: File does not exist: /var/www/html/cgi-bin/.%%32%65/.%%32%65/.%%32%65/.%%32%65/.%%32%65/bin/bash
+[Mon Nov 04 09:27:24.654886 2024] [core:error] [pid 203896] [client 79.213.181.141:40614] AH10244: invalid URI path (/cgi-bin/.%2E/%2E%2E/%2E%2E/%2E%2E/%2E%2E/bin/bash)
+[Mon Nov 04 09:33:30.390751 2024] [core:error] [pid 203895] [client 79.213.181.141:51374] AH10244: invalid URI path (/cgi-bin/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65//etc/passwd)
+[Mon Nov 04 09:33:40.771763 2024] [core:error] [pid 203898] [client 79.213.181.141:57448] AH10244: invalid URI path (/cgi-bin/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65//bin/sh)
+[Mon Nov 04 09:34:09.437221 2024] [core:error] [pid 203900] [client 79.213.181.141:54276] AH10244: invalid URI path (/cgi-bin/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65//bin/sh)
+[Mon Nov 04 10:10:49.819486 2024] [core:info] [pid 203898] [client 80.245.132.90:56978] AH00128: File does not exist: /var/www/html/favicon.ico, referer: http://5.75.182.107/
+[Mon Nov 04 10:11:41.269768 2024] [reqtimeout:info] [pid 203900] [client 80.245.132.90:56977] AH01382: Request header read timeout
+[Mon Nov 04 10:12:25.805614 2024] [reqtimeout:info] [pid 208919] [client 80.245.132.90:57553] AH01382: Request header read timeout
+[Mon Nov 04 10:12:33.985510 2024] [reqtimeout:info] [pid 203893] [client 80.245.132.90:57559] AH01382: Request header read timeout
+[Mon Nov 04 11:10:28.385874 2024] [core:info] [pid 203895] [client 178.215.238.85:35290] AH00128: File does not exist: /var/www/html/login.rsp
+[Mon Nov 04 11:38:46.234647 2024] [reqtimeout:info] [pid 203898] [client 47.254.204.189:49076] AH01382: Request header read timeout
+[Mon Nov 04 11:42:54.063636 2024] [core:info] [pid 203900] [client 195.26.253.72:44744] AH00128: File does not exist: /var/www/html/.env
+[Mon Nov 04 12:13:45.925451 2024] [core:info] [pid 208919] [client 178.215.238.85:51544] AH00128: File does not exist: /var/www/html/login.rsp
