@@ -11,13 +11,11 @@ app.config['MYSQL_DB'] = "udulguun_db"
 
 mysql_client = mysql.connector.connect(
     host="localhost",
-    user="root",
-    password="new_password",
+    user="udulguun",
+    password="rHmQxy",
     database="dresszenfinder5",
     buffered=True
 )
-
-
 
 @app.route('/autocomplete', methods=['GET'])
 def autocomplete():
@@ -181,4 +179,4 @@ def signin():
     return render_template('signin.html', msg=msg)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host="0.0.0.0", port=8006)
