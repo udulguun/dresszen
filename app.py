@@ -11,8 +11,8 @@ app.config['MYSQL_DB'] = "udulguun_db"
 
 mysql_client = mysql.connector.connect(
     host="localhost",
-    user="udulguun",
-    password="rHmQxy",
+    user="root",
+    password="new_password",
     database="dresszenfinder5",
     buffered=True
 )
@@ -138,11 +138,21 @@ def maintenance():
 
 
 
-@app.route('/index')  # The second `index` function is kept here
+@app.route('/index')  
 def index():
     if 'loggedin' in session:
-        return render_template('index.html', username=session['username'])
+        # Query clothing descriptions from the database
+        query = "SELECT cloth_description FROM clothing_item"
+        cur = mysql_client.cursor()
+        cur.execute(query)
+        clothing_descriptions = cur.fetchall()  # Get all descriptions
+        cur.close()
+
+        # Pass clothing descriptions to the template
+        return render_template('index.html', username=session['username'], clothing_descriptions=clothing_descriptions)
+    
     return redirect(url_for('signin'))  # Redirect to sign-in if not logged in
+
 
 @app.route('/signout')
 def signout():
@@ -171,4 +181,4 @@ def signin():
     return render_template('signin.html', msg=msg)
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=8006)
+    app.run()
