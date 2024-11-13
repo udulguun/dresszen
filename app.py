@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, flash, session, send_from_directory, logging
+from flask import Flask, render_template, request, redirect, url_for, flash, session, jsonify
 from flask_bcrypt import Bcrypt
 import mysql.connector
 
@@ -16,6 +16,21 @@ mysql_client = mysql.connector.connect(
     database="dresszenfinder5",
     buffered=True
 )
+
+
+# Autocomplete route using mysql.connector
+@app.route('/autocomplete', methods=['GET'])
+def autocomplete():
+    term = request.args.get('term', '')
+    cur = mysql_client.cursor()
+
+    # Query to fetch relevant items
+    query = "SELECT cloth_description FROM clothing_item WHERE cloth_description LIKE %s LIMIT 10"
+    cur.execute(query, (f"%{term}%",))
+    results = [row[0] for row in cur.fetchall()]
+    cur.close()
+
+    return jsonify(results)
 
 @app.route('/', methods=['GET', 'POST'])
 def register():  # Changed function name from `index` to `register`
