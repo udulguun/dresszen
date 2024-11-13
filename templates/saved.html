@@ -99,6 +99,27 @@
     </footer>
 
     <script>
+        // Autocomplete functionality
+        $("#search-bar").autocomplete({
+            source: function(request, response) {
+                $.ajax({
+                    url: "{{ url_for('autocomplete') }}",  // The Flask route to fetch suggestions
+                    method: "GET",
+                    data: {
+                        term: request.term  // The search term the user is typing
+                    },
+                    success: function(data) {
+                        response(data);  // Provide the suggestions to the autocomplete widget
+                    },
+                    error: function() {
+                        response([]);  // If there's an error, return an empty list
+                    }
+                });
+            },
+            minLength: 1,  // Show suggestions after 1 character is typed
+            delay: 300,    // Delay between keystrokes to prevent too many requests
+        });
+
         // Function to toggle dropdown menu visibility
         function toggleDropdown() {
             var dropdown = document.getElementById("dropdownMenu");
