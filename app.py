@@ -11,26 +11,37 @@ app.config['MYSQL_DB'] = "udulguun_db"
 
 mysql_client = mysql.connector.connect(
     host="localhost",
-    user="udulguun",
-    password="rHmQxy",
+    user="root",
+    password="new_password",
     database="dresszenfinder5",
     buffered=True
 )
 
 
-# Autocomplete route using mysql.connector
 @app.route('/autocomplete', methods=['GET'])
 def autocomplete():
-    term = request.args.get('term', '')
-    cur = mysql_client.cursor()
+    term = request.args.get('term')  # The search term typed by the user
+    if term:
+        term = term.lower()  # Normalize to lowercase for case-insensitive search
 
-    # Query to fetch relevant items
-    query = "SELECT cloth_description FROM clothing_item WHERE cloth_description LIKE %s LIMIT 10"
-    cur.execute(query, (f"%{term}%",))
-    results = [row[0] for row in cur.fetchall()]
-    cur.close()
+        # Query for matching items from the database
+        cur = mysql_client.cursor()
+        cur.execute(
+            """
+            SELECT name FROM clothing_item 
+            WHERE LOWER(name) LIKE %s LIMIT 10
+            """,
+            (f'%{term}%',)  # Matching terms like 'b%', 'bl%', etc.
+        )
+        results = cur.fetchall()
+        cur.close()
 
-    return jsonify(results)
+        # Extract only the name column from the results
+        suggestions = [result[0] for result in results]
+        
+        return jsonify(suggestions)  # Return suggestions as a JSON response
+    return jsonify([])  # Return an empty list if no term was provided
+
 
 @app.route('/', methods=['GET', 'POST'])
 def register():  # Changed function name from `index` to `register`
@@ -158,4 +169,4 @@ def signin():
     return render_template('signin.html', msg=msg)
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=8006)
+    app.run()
