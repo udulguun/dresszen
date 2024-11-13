@@ -25,6 +25,23 @@ h1 {
     text-align: center;
 }
 
+/* Search bar and login button styling */
+.search-login-menu {
+    flex: 1; /* Takes up space in header */
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center items vertically */
+    justify-content: flex-end; /* Align items to the right */
+}
+
+.search-bar {
+    padding: 0.5rem; /* Padding for the search bar */
+    font-size: 1.1rem; /* Font size for the search bar */
+    font-family: Palatino;
+    margin-right: 1rem; /* Space between search bar and button */
+    border-radius: 5px; /* Rounded corners */
+    border: none; /* No border */
+}
+
 .grid-container {
     display: flex;
     flex-wrap: wrap;

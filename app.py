@@ -11,11 +11,12 @@ app.config['MYSQL_DB'] = "udulguun_db"
 
 mysql_client = mysql.connector.connect(
     host="localhost",
-    user="root",
-    password="new_password",
+    user="udulguun",
+    password="rHmQxy",
     database="dresszenfinder5",
     buffered=True
 )
+
 
 
 @app.route('/autocomplete', methods=['GET'])
@@ -28,11 +29,12 @@ def autocomplete():
         cur = mysql_client.cursor()
         cur.execute(
             """
-            SELECT name FROM clothing_item 
-            WHERE LOWER(name) LIKE %s LIMIT 10
+            SELECT cloth_description FROM clothing_item 
+            WHERE LOWER(cloth_description) LIKE %s LIMIT 10
             """,
-            (f'%{term}%',)  # Matching terms like 'b%', 'bl%', etc.
+            (f'%{term}%',)
         )
+
         results = cur.fetchall()
         cur.close()
 
@@ -169,4 +171,4 @@ def signin():
     return render_template('signin.html', msg=msg)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host="0.0.0.0", port=8006)
