@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, session, jsonify
 from flask_bcrypt import Bcrypt
 import mysql.connector
+import requests
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
@@ -16,6 +17,25 @@ mysql_client = mysql.connector.connect(
     database="dresszenfinder5",
     buffered=True
 )
+
+@app.route('/location', methods=['GET'])
+def location():
+    # Get the client's IP address
+    client_ip = request.headers.get('X-Forwarded-For', request.remote_addr)
+
+    # Perform geolocation lookup using ipinfo.io
+    try:
+        response = requests.get(f'https://ipinfo.io/{client_ip}/json')
+        if response.status_code == 200:
+            data = response.json()
+            location = data.get('loc', '0,0')  # Default to '0,0' if location is unavailable
+            lat, lng = map(float, location.split(','))
+            return render_template('location.html', lat=lat, lng=lng, ip=client_ip)
+    except Exception as e:
+        print(f"Error during IP geolocation: {e}")
+    
+    # Fallback to default location if lookup fails
+    return render_template('location.html', lat=0.0, lng=0.0, ip='Unknown')
 
 @app.route('/autocomplete', methods=['GET'])
 def autocomplete():
