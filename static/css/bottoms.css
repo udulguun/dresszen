@@ -58,6 +58,7 @@ header {
     margin-right: 1rem; /* Space between search bar and button */
     border-radius: 5px; /* Rounded corners */
     border: none; /* No border */
+    width: 150px;
 }
 
 .login-btn {

@@ -12,8 +12,8 @@ app.config['MYSQL_DB'] = "udulguun_db"
 
 mysql_client = mysql.connector.connect(
     host="localhost",
-    user="udulguun",
-    password="rHmQxy",
+    user="root",
+    password="new_password",
     database="dresszenfinder5",
     buffered=True
 )

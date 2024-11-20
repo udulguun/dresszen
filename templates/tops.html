@@ -21,6 +21,7 @@
         </div>
 
         <nav class="search-login-menu">
+            <a href="{{ url_for('location') }}" class="login-btn">LOCATION</a>
             <!-- Search bar -->
             <form action="{{ url_for('search') }}" method="GET" class="search-form">
                 <input type="text" id="search-bar" name="query" placeholder="Search..." required class="search-bar">
