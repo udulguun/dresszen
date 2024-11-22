@@ -1,70 +1,75 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, session, jsonify
 from flask_bcrypt import Bcrypt
-import mysql.connector
+from mysql.connector import pooling, Error
 import requests
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
-app.config['MYSQL_HOST'] = "localhost"
-app.config['MYSQL_USER'] = "udulguun"
-app.config['MYSQL_PASSWORD'] = "rHmQxy"
-app.config['MYSQL_DB'] = "udulguun_db"
 
-mysql_client = mysql.connector.connect(
-    host="localhost",
-    user="udulguun",
-    password="rHmQxy",
-    database="dresszenfinder5",
-    buffered=True
-)
+# Database connection pool
+db_config = {
+    "host": "localhost",
+    "user": "udulguun",
+    "password": "rHmQxy",
+    "database": "dresszenfinder5",
+    "buffered": True
+}
+mysql_pool = pooling.MySQLConnectionPool(pool_name="mypool", pool_size=5, **db_config)
+
+
+# Utility function for database queries
+def execute_query(query, params=None, fetch=False):
+    try:
+        conn = mysql_pool.get_connection()
+        cursor = conn.cursor()
+        cursor.execute(query, params if params else ())
+        
+        if fetch:
+            result = cursor.fetchall()
+            cursor.close()
+            conn.close()
+            return result
+
+        conn.commit()
+        cursor.close()
+        conn.close()
+    except Error as e:
+        print(f"Database Error: {e}")
+        if conn.is_connected():
+            conn.close()
+
 
 @app.route('/location', methods=['GET'])
 def location():
-    # Get the client's IP address
     client_ip = request.headers.get('X-Forwarded-For', request.remote_addr)
-
-    # Perform geolocation lookup using ipinfo.io
     try:
         response = requests.get(f'https://ipinfo.io/{client_ip}/json')
         if response.status_code == 200:
             data = response.json()
-            location = data.get('loc', '0,0')  # Default to '0,0' if location is unavailable
+            location = data.get('loc', '0,0')  # Default to '0,0' if unavailable
             lat, lng = map(float, location.split(','))
             return render_template('location.html', lat=lat, lng=lng, ip=client_ip)
     except Exception as e:
         print(f"Error during IP geolocation: {e}")
-    
-    # Fallback to default location if lookup fails
     return render_template('location.html', lat=0.0, lng=0.0, ip='Unknown')
+
 
 @app.route('/autocomplete', methods=['GET'])
 def autocomplete():
-    term = request.args.get('term')  # The search term typed by the user
+    term = request.args.get('term')
     if term:
-        term = term.lower()  # Normalize to lowercase for case-insensitive search
-
-        # Query for matching items from the database
-        cur = mysql_client.cursor()
-        cur.execute(
-            """
-            SELECT cloth_description FROM clothing_item 
-            WHERE LOWER(cloth_description) LIKE %s LIMIT 10
-            """,
-            (f'%{term}%',)
-        )
-
-        results = cur.fetchall()
-        cur.close()
-
-        # Extract only the name column from the results
+        query = """
+        SELECT cloth_description FROM clothing_item 
+        WHERE LOWER(cloth_description) LIKE %s LIMIT 10
+        """
+        results = execute_query(query, (f'%{term.lower()}%',), fetch=True)
         suggestions = [result[0] for result in results]
-        
-        return jsonify(suggestions)  # Return suggestions as a JSON response
-    return jsonify([])  # Return an empty list if no term was provided
+        return jsonify(suggestions)
+    return jsonify([])
 
 
 @app.route('/', methods=['GET', 'POST'])
-def register():  # Changed function name from `index` to `register`
+def register():
     if request.method == 'POST':
         username = request.form['username']
         size = request.form['size']
@@ -73,15 +78,13 @@ def register():  # Changed function name from `index` to `register`
         gender = request.form['gender']
         password = request.form['password']
 
-        cur = mysql_client.cursor()
-        cur.execute("INSERT INTO users(username, size, age, email, gender, password) VALUES(%s, %s, %s, %s, %s, %s)", 
-                    (username, size, age, email, gender, password))
-        mysql_client.commit()
-        cur.close()
-
-        flash("User added successfully!", "success")  # Flash a success message
-        return redirect(url_for('register'))  # Changed redirection to `register`
-
+        query = """
+        INSERT INTO users(username, size, age, email, gender, password)
+        VALUES (%s, %s, %s, %s, %s, %s)
+        """
+        execute_query(query, (username, size, age, email, gender, password))
+        flash("User added successfully!", "success")
+        return redirect(url_for('register'))
     return render_template('register.html')
 
 
@@ -89,27 +92,17 @@ def register():  # Changed function name from `index` to `register`
 def search():
     query = request.args.get('query')
     if query:
-        # Normalize the query
-        query = query.lower()
-
-        # Search for clothing items based on the query
-        cur = mysql_client.cursor()
-        cur.execute(
-            "SELECT * FROM clothing_item WHERE LOWER(color) LIKE %s OR LOWER(season) LIKE %s OR LOWER(cloth_description) LIKE %s",
-            (f'%{query}%', f'%{query}%', f'%{query}%')
-        )
-        results = cur.fetchall()
-        cur.close()
-        
+        search_query = """
+        SELECT * FROM clothing_item
+        WHERE LOWER(color) LIKE %s OR LOWER(season) LIKE %s OR LOWER(cloth_description) LIKE %s
+        """
+        results = execute_query(search_query, (f'%{query.lower()}%',) * 3, fetch=True)
         return render_template('search_results.html', results=results)
-    
     return redirect(url_for('index'))
 
 
-# Route to serve individual item HTML pages
 @app.route('/item/<item_name>')
 def item(item_name):
-    # Render the specific item HTML page
     return render_template(f'{item_name}.html')
 
 
@@ -117,29 +110,36 @@ def item(item_name):
 def tops():
     return render_template('tops.html')
 
+
 @app.route('/bottoms')
 def bottoms():
     return render_template('bottoms.html')
+
 
 @app.route('/shoes')
 def shoes():
     return render_template('shoes.html')
 
+
 @app.route('/acc')
 def acc():
     return render_template('acc.html')
+
 
 @app.route('/brands')
 def brands():
     return render_template('brands.html')
 
+
 @app.route('/saved')
 def saved():
     return render_template('saved.html')
 
+
 @app.route('/imprint')
 def imprint():
     return render_template('imprint.html')
+
 
 @app.route('/maintenance_err')
 def maintenance_err():
@@ -148,28 +148,19 @@ def maintenance_err():
 
 @app.route('/maintenance')
 def maintenance():
-    # Check if the user is logged in and is 'admin'
     if 'loggedin' in session and session['username'] == 'admin':
         return render_template('maintenance.html')
     else:
         return redirect(url_for('maintenance_err'))
 
 
-
-@app.route('/index')  
+@app.route('/index')
 def index():
     if 'loggedin' in session:
-        # Query clothing descriptions from the database
         query = "SELECT cloth_description FROM clothing_item"
-        cur = mysql_client.cursor()
-        cur.execute(query)
-        clothing_descriptions = cur.fetchall()  # Get all descriptions
-        cur.close()
-
-        # Pass clothing descriptions to the template
+        clothing_descriptions = execute_query(query, fetch=True)
         return render_template('index.html', username=session['username'], clothing_descriptions=clothing_descriptions)
-    
-    return redirect(url_for('signin'))  # Redirect to sign-in if not logged in
+    return redirect(url_for('signin'))
 
 
 @app.route('/signout')
@@ -178,6 +169,7 @@ def signout():
     session.pop('username', None)
     return redirect(url_for('signin'))
 
+
 @app.route('/signin', methods=['GET', 'POST'])
 def signin():
     msg = ''
@@ -185,18 +177,17 @@ def signin():
         username = request.form['username']
         password = request.form['password']
 
-        cur = mysql_client.cursor()
-        cur.execute('SELECT * FROM users WHERE username=%s AND password=%s', (username, password))
-        record = cur.fetchone()
+        query = "SELECT * FROM users WHERE username=%s AND password=%s"
+        record = execute_query(query, (username, password), fetch=True)
 
         if record:
             session['loggedin'] = True
-            session['username'] = record[1]
-            return redirect(url_for('index'))  # Redirect to the main index page
+            session['username'] = record[0][1]
+            return redirect(url_for('index'))
         else:
             msg = 'Incorrect username or password'
-
     return render_template('signin.html', msg=msg)
+
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=8006)
